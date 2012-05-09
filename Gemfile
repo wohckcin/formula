@@ -44,6 +44,7 @@ group :test do
   gem 'database_cleaner'
   gem 'email_spec'
   gem 'launchy'
+  gem 'thin'
 end
 
 # To use ActiveModel has_secure_password
