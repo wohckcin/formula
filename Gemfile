@@ -27,7 +27,7 @@ gem 'cancan'
 gem 'rolify'
 
 # Css Framework
-gem 'bootstrap-rails'
+gem 'bootstrap-sass'
 
 # From 
 gem 'simple_form'
@@ -37,6 +37,7 @@ group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'thin'
 end
 group :test do
   gem 'cucumber-rails'
@@ -44,7 +45,6 @@ group :test do
   gem 'database_cleaner'
   gem 'email_spec'
   gem 'launchy'
-  gem 'thin'
 end
 
 # To use ActiveModel has_secure_password
