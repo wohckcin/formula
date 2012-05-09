@@ -4,10 +4,6 @@ gem 'rails', '3.2.3'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-group :development, :test do
-  gem 'sqlite3'
-  gem 'rspec-rails'
-end
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -23,9 +19,31 @@ end
 
 gem 'jquery-rails'
 
+# User Authentication
+gem 'devise'
+
+# Permission
+gem 'cancan'
+gem 'rolify'
+
+# Css Framework
+gem 'bootstrap-rails'
+
+# From 
+gem 'simple_form'
+
 # TEST with capybara and Rspec
+group :development, :test do
+  gem 'sqlite3'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+end
 group :test do
+  gem 'cucumber-rails'
   gem 'capybara', '~> 1.1.2'
+  gem 'database_cleaner'
+  gem 'email_spec'
+  gem 'launchy'
 end
 
 # To use ActiveModel has_secure_password
