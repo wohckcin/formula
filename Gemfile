@@ -33,6 +33,9 @@ gem 'bootstrap-sass'
 # From
 gem 'simple_form'
 
+# Paginate
+gem "will_paginate", "~> 3.0.3"
+
 # TEST with capybara and Rspec
 group :development, :test do
   gem 'sqlite3'
