@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
 
   validates :name, presence: true, uniqueness: { case_sensitive: false }
   validates :email, presence:true, uniqueness: { case_sensitive: false }
-  validates :login, format: {with: /\A\w+\z/, message: '只允许数字、大小写字母和下划线'}, length: {in: 6..32}, presence: true, uniqueness: {case_sensitive: false}
+  # validates :login, format: {with: /\A\w+\z/, message: '只允许数字、大小写字母和下划线'}, length: {in: 6..32}, presence: true, uniqueness: {case_sensitive: false}
 
   # Overwrite Devise’s find_for_database_authentication method in Users model
   def self.find_first_by_auth_conditions(warden_conditions)

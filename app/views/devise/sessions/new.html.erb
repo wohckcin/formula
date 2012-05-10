@@ -2,13 +2,13 @@
 
 <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => 'form-horizontal' }) do |f| %>
   <div class="inputs">
-    <%= f.input :login, label: '用户名或邮箱', required: false, autofocus: true %>
-    <%= f.input :password, label: '密码', required: false %>
-    <%= f.input :remember_me, label: '记住登陆状态', as: :boolean if devise_mapping.rememberable? %>
+    <%= f.input :login, required: false, autofocus: true %>
+    <%= f.input :password, required: false %>
+    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
   </div>
 
   <div class="actions">
-    <%= f.button :submit, '登录', :class => 'btn btn-primary' %>
+    <%= f.button :submit, :class => 'btn btn-primary' %>
   </div>
 <% end %>
 

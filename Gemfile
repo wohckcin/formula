@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.3'
+gem 'rails-i18n'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -29,19 +30,19 @@ gem 'rolify'
 # Css Framework
 gem 'bootstrap-sass'
 
-# From 
+# From
 gem 'simple_form'
 
 # TEST with capybara and Rspec
 group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails'
-  gem 'factory_girl_rails'
   gem 'thin'
 end
 group :test do
-  gem 'cucumber-rails'
+  gem 'factory_girl_rails'
   gem 'capybara', '~> 1.1.2'
+  gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
   gem 'email_spec'
   gem 'launchy'
