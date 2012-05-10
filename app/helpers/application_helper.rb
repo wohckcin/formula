@@ -1,6 +1,4 @@
 # coding: utf-8
-require 'bootstrap_helper'
-
 module ApplicationHelper
 
   def render_page_title
