@@ -24,7 +24,7 @@ module ApplicationHelper
     flash_messages = []
     flash.each do |type, message|
       type = :success if type == :notice
-      text = content_tag(:div, link_to("x", "#", :class => "close", "data-dismiss" => "alert") + message, :class => "alert fade in alert-#{type}")
+      text = content_tag(:div, link_to("x", "#", class: "close", "data-dismiss" => "alert") + message, class: "alert fade in alert-#{type}")
       flash_messages << text if message
     end
     flash_messages.join("\n").html_safe
@@ -44,12 +44,12 @@ module ApplicationHelper
       if i == (@breadcrumbs.length - 1)
         breadcrumb_content = c
       else
-        breadcrumb_content = c + content_tag(:span, "/", :class => "divider")
+        breadcrumb_content = c + content_tag(:span, "/", class: "divider")
       end
 
-      crumb += content_tag(:li, breadcrumb_content ,:class => breadcrumb_class )
+      crumb += content_tag(:li, breadcrumb_content , class: breadcrumb_class )
     end
-    return prefix + content_tag(:ul, crumb, :class => "breadcrumb menu clearfix")
+    return prefix + content_tag(:ul, crumb, class: "breadcrumb menu clearfix")
   end
 
 end

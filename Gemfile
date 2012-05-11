@@ -28,8 +28,7 @@ gem 'cancan'
 gem 'rolify'
 
 # Css Framework
-gem 'bootstrap-sass'
-
+gem 'bootstrap-sass', :git => "git://github.com/thomas-mcdonald/bootstrap-sass.git", :branch => "2.0.3"
 # From
 gem 'simple_form'
 

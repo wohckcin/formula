@@ -7,7 +7,7 @@
     <meta name="keywords" content="<%= @meta_keywords %>" />
     <meta name="description" content="<%= @meta_description %>">
     <meta name="author" content="">
-    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= stylesheet_link_tag "application", media: "all" %>
     <%= csrf_meta_tags %>
     <%= yield(:head) %>
     <link rel="shortcut icon" href="<%= asset_path("big_logo.png") %>" /> 
@@ -23,7 +23,7 @@
     <div class="container">
       <%= render_breadcrumb %>
       <%= notice_message %>
-      <div id="main" class="container-fluid">
+      <div id="main" class="container">
         <%= yield %>
       </div> 
     </div> <!--! end of .container -->

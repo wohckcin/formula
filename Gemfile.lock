@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/thomas-mcdonald/bootstrap-sass.git
+  revision: 261ccd43b6c1b48a7bc2f60fe591dc698f2a7e1c
+  branch: 2.0.3
+  specs:
+    bootstrap-sass (2.0.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -31,7 +38,6 @@ GEM
     addressable (2.2.8)
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
-    bootstrap-sass (2.0.2)
     builder (3.0.0)
     cancan (1.6.7)
     capybara (1.1.2)
@@ -186,7 +192,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap-sass
+  bootstrap-sass!
   cancan
   capybara (~> 1.1.2)
   coffee-rails (~> 3.2.1)
