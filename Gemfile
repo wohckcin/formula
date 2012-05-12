@@ -40,6 +40,7 @@ group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails'
   gem 'thin'
+  gem 'annotate'
 end
 group :test do
   gem 'factory_girl_rails'
