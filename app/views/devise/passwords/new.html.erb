@@ -1,15 +1,23 @@
-<h2>Forgot your password?</h2>
+<div class="row">
+  <div class="span8">
+    <div class="box">
+      <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { class: 'form-horizontal', method: :post }) do |f| %>
+        <fieldset>
+          <legend><%= t('users.forget_password') %></legend>
+          <%= f.error_notification %>
+          <%= f.input :login, required: true %>
 
-<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { class: 'form-horizontal', method: :post }) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="inputs">
-    <%= f.input :login, required: true %>
+          <div class="form-actions">
+            <%= f.button :submit, t('common.findpassword'), class: 'btn btn-primary' %>
+          </div>
+        </fieldset>
+      <% end %>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= f.button :submit, "Send me reset password instructions" %>
+  <div class="span4">
+    <div class="box">
+      <h3 class="title"><%= t("users.already_have_account")%></h3>
+      <%= render "links" %>
+    </div>
   </div>
-<% end %>
-
-<%= render "links" %>
+</div>

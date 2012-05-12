@@ -16,6 +16,7 @@ zh-CN:
     edit_password: "修改密码"
     delete_my_account: "删除我的帐号"
     delete_this_account: "删除此帐号"
+    resend_confirmation_instructions: "重发确认信息邮件"
     dont_like_it: "不喜欢?"
     bind_another_account: "绑定其他帐号用于登陆"
     register_user: "注册新用户"
