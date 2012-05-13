@@ -1,10 +1,13 @@
 Formula::Application.routes.draw do
-  
+
   root :to => 'home#index'
 
   devise_for :users
 
   resources :users, only: [:index, :show]
+
+  resources :profiles, only: [:show]
+  resource :profile, only: [:edit, :update]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

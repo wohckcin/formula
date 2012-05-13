@@ -19,6 +19,24 @@ class User < ActiveRecord::Base
   validates :username, presence: true, uniqueness: { case_sensitive: false }
   validates :email, presence:true, uniqueness: { case_sensitive: false }
 
+  # join profiles to users
+  has_one :profile, dependent: :destroy
+  accepts_nested_attributes_for :profile
+
+  # Set a default of an empty profile when a new User record is instantiated.
+  # Passing :profile => nil to User.new will instantiate a person with no profile.
+  # Calling User.new with a block:
+  #   User.new do |p|
+  #     p.profile = nil
+  #   end
+  # will not work!  The nil profile will be overriden with an empty one.
+  def initialize(params={})
+    profile_set = params.has_key?(:profile) || params.has_key?("profile")
+    params[:profile_attributes] = params.delete(:profile) if params.has_key?(:profile) && params[:profile].is_a?(Hash)
+    super
+    self.profile ||= Profile.new unless profile_set
+  end
+
   # Overwrite Devise’s find_for_database_authentication method in Users model
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
@@ -49,6 +67,6 @@ end
 #  authentication_token   :string(255)
 #  created_at             :datetime        not null
 #  updated_at             :datetime        not null
-#  name                   :string(255)
+#  username               :string(255)     default(""), not null
 #
 

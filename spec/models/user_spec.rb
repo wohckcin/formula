@@ -22,6 +22,6 @@ end
 #  authentication_token   :string(255)
 #  created_at             :datetime        not null
 #  updated_at             :datetime        not null
-#  name                   :string(255)
+#  username               :string(255)     default(""), not null
 #
 
