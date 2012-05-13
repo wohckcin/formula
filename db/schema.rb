@@ -11,7 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120509073248) do
+ActiveRecord::Schema.define(:version => 20120513074417) do
+
+  create_table "profiles", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "nickname"
+    t.string   "gender"
+    t.date     "birthday"
+    t.text     "bio"
+    t.string   "tagline"
+    t.string   "avatar"
+    t.string   "location"
+    t.string   "website"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "roles", :force => true do |t|
     t.string   "name"
