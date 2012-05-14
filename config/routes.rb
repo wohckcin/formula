@@ -6,8 +6,8 @@ Formula::Application.routes.draw do
 
   resources :users, only: [:index, :show]
 
-  resources :profiles, only: [:show]
-  resource :profile, only: [:edit, :update]
+  resources :profiles, :only => [:show, :update]
+  resource :profile, :only => [:edit]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

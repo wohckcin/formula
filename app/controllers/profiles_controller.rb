@@ -1,3 +1,4 @@
+# coding: utf-8
 class ProfilesController < ApplicationController
   before_filter :authenticate_user!
 
@@ -12,12 +13,13 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    @profile_attrs = params[:profile] || {}
+    @profile = Profile.find(params[:id])
 
-    if current_user.update_profile(@profile_attrs)
-      flash[:notice] = t('profiles.update.updated')
+    if @profile.update_attributes(params[:profile])
+      redirect_to root_path, notice: '个人资源修改成功'
     else
-      flash[:error] = t('profiles.update.failed')
+      render action: 'edit'
+      flash[:error] = '个人资源修改不成功，请重新修改'
     end
   end
 

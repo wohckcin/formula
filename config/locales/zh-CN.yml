@@ -214,3 +214,12 @@ zh-CN:
         verified: "信任用户"
         remember_me: 记住登陆状态
         current_password: 旧密码
+      profile:
+        nickname: 昵称
+        gender: 性别
+        birthday: 出生日期
+        location: 所在城市
+        avator: 头像
+        website: 个人网站
+        tagline: 签名
+        bio: 个人介绍
