@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/Nerian/bootstrap-datepicker-rails.git
+  revision: 9abb078f2468e7ec5039648ab15b27081bb175eb
+  specs:
+    bootstrap-datepicker-rails (0.6.13)
+      railties (>= 3.0)
+
+GIT
   remote: git://github.com/thomas-mcdonald/bootstrap-sass.git
   revision: 261ccd43b6c1b48a7bc2f60fe591dc698f2a7e1c
   branch: 2.0.3
@@ -194,6 +201,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
+  bootstrap-datepicker-rails!
   bootstrap-sass!
   cancan
   capybara (~> 1.1.2)
