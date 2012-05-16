@@ -5,8 +5,8 @@
         <fieldset>
           <legend><%= t("users.personal_information")%></legend> 
           <%= f.error_notification %>
-          <%= f.input :username, disabled: true %>
-          <%= f.input :email, required: true, autofocus: true %>
+          <%= f.input :username, disabled: true, required: false %>
+          <%= f.input :email, autofocus: true, required: false %>
           <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
           <%= f.input :password_confirmation, required: false %>
           <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>

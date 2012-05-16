@@ -37,6 +37,10 @@ gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
 # Paginate
 gem "will_paginate", "~> 3.0.3"
 
+# Attchment
+gem "carrierwave"
+gem 'mini_magick'
+
 # TEST with capybara and Rspec
 group :development, :test do
   gem 'sqlite3'
