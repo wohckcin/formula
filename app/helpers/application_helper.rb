@@ -25,7 +25,7 @@ module ApplicationHelper
     flash.each do |type, message|
       type = :success if type == :notice
       text = content_tag(:div, link_to("x", "#", class: "close", "data-dismiss" => "alert") + message, class: "alert fade in alert-#{type}")
-      flash_messages << text if message
+      flash_messages << text if message.is_a?String # fix Devise timeoutable return true in flash
     end
     flash_messages.join("\n").html_safe
   end

@@ -1,15 +1,15 @@
 <div class="row">
   <div class="span8">
     <div class="box">
-      <%= simple_form_for(@profile, method: :put, html: {class: 'form-horizontal'}) do |f| %>
+      <%= simple_form_for(@profile, method: :put, html: { class: 'form-horizontal' }) do |f| %>
         <fieldset>
           <legend><%= t("users.personal_information")%></legend> 
           <%= f.error_notification %>
-          <%= f.input :nickname, autofocus: true %>
+          <%= f.input :nickname, autofocus: true, input_html: { class: 'span2' } %>
           <%= f.input :avatar, as: :file %>
           <%= f.input :gender, as: :radio_buttons, item_wrapper_class: 'inline', collection: [:male, :female] %>
-          <%= f.input :birthday, as: :string, input_html: {class: 'datepicker'} %>
-          <div class="control-group">
+          <%= f.input :birthday, as: :string, input_html: { class: 'datepicker span2' } %>
+<!--           <div class="control-group">
             <%= f.label :birthday %>
             <div class="controls">
               <div class="input-append datepicker date">
@@ -19,14 +19,14 @@
                 </span>
               </div>
             </div>
-          </div>
-          <%= f.input :location %>
-          <%= f.input :website %>
-          <%= f.input :tagline %>
-          <%= f.input :bio, as: :text, input_html: {rows: '5', class: 'span4'} %>
+          </div> -->
+          <%= f.input :location, input_html: { class: 'span2' } %>
+          <%= f.input :website, placeholder: 'http://', input_html: { class: 'span4' } %>
+          <%= f.input :tagline, input_html: { class: 'span4' } %>
+          <%= f.input :bio, as: :text, input_html: { rows: '5', class: 'span4' } %>
           <div class="form-actions">
             <%= f.button :submit, t('common.update'), class: 'btn btn-primary', disable_with: t('common.saving') %>
-            <%= submit_tag 'Cancel', type: :reset, :class => "btn btn-danger" %>
+            <%= submit_tag t('common.cancel'), type: :reset, class: "btn btn-danger" %>
           </div>
         </fieldset>
       <% end %>
