@@ -6,3 +6,4 @@ Formula::Application.initialize!
 
 # Site configuration
 SITE_NAME = 'CodeName: Formula'
+SITE_VERSION = 'VERSION: 1.0.0-dev'

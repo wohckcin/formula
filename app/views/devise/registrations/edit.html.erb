@@ -5,8 +5,8 @@
         <fieldset>
           <legend><%= t("users.personal_information")%></legend> 
           <%= f.error_notification %>
-          <%= f.input :username, required: true, autofocus: true %>
-          <%= f.input :email, required: true %>
+          <%= f.input :username, disabled: true %>
+          <%= f.input :email, required: true, autofocus: true %>
           <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
           <%= f.input :password_confirmation, required: false %>
           <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
@@ -21,7 +21,7 @@
   <div class="span4">
     <div class="box">
       <h3 class="title" ><%= t("users.delete_my_account")%></h3>
-      <p><%= t("users.dont_like_it")%> <%= link_to(t("users.delete_this_account"), registration_path(resource_name), :confirm => "删除后无法恢复，你确定吗?", :class => "btn btn-danger", :method => :delete )%></p>
+      <p><%= t("users.dont_like_it")%> <%= link_to(t("users.delete_this_account"), registration_path(resource_name), confirm: t('common.after_delete'), class: "btn btn-danger", method: :delete )%></p>
     </div>
   </div>
 </div>
