@@ -1,6 +1,7 @@
 // Set the correct sprite paths
 $iconSpritePath: asset-url('glyphicons-halflings.png', image);
 $iconWhiteSpritePath: asset-url('glyphicons-halflings-white.png', image);
+$sansFontFamily: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", STHeiti !important;
 @import "bootstrap";
 body {
   padding-top: 60px;

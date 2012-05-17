@@ -19,6 +19,9 @@ html {
 }
 .breadcrumb { 
   color: #999;
+  a{
+  text-shadow: #d7d7d7 0px 1px 0px;
+  }
 }
 .footer {
 
@@ -32,8 +35,9 @@ html {
 }
 .box { 
   background-color: #fff;
+  text-shadow: 0 1px 0 white;
   padding:10px;  
-  // margin: 0 0 20px 0; /* negative indent the amount of the padding to maintain the grid system */
+  margin: 0 0 20px 0; /* negative indent the amount of the padding to maintain the grid system */
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
@@ -43,8 +47,9 @@ html {
   h3.title {
     font-size: 100%;
     margin:0 -10px; padding:0 10px; margin-bottom:8px;
-    color:#999; line-height:100%;
+    color:#ccc; line-height:100%;
     border-bottom:1px solid #ddd; padding-bottom:8px;
+    // text-shadow: #d7d7d7 0px 1px 0px;
   }
 }
 .navbar a.brand {
@@ -55,3 +60,109 @@ html {
        -moz-transition: all .2s linear;
             transition: all .2s linear;
 } 
+.vertical-inherit {
+  vertical-align: inherit;
+}
+.avatar {
+  // width: 48px;
+  // height: 48px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+.stats {
+  overflow: hidden;
+  border-top: 1px solid #E8E8E8;
+  border-bottom: 1px solid #E8E8E8;
+}
+
+
+.mini-profile {
+  text-shadow: 0 1px 0 white;
+  line-height: 16px;
+  padding: 0px;
+  position: relative;
+  a {
+    color: #0084B4;
+    text-decoration: none;
+    outline: 0;
+  }
+  a:hover {
+    text-decoration: none; 
+  }
+  a:-webkit-any-link {
+    color: -webkit-link;
+    // text-decoration: underline;
+    cursor: auto;
+  }
+  img {
+    float: left;
+  }
+  .metadata {
+    font-size: 12px;
+    color: #999;
+  }
+  .nickname {
+    display: block;
+    line-height: 28px;
+    font-weight: bold;
+    font-size: 22px;
+    color: #333;
+  }
+  .profile-summary {
+    padding: 12px;
+    .account-summary {
+      margin-bottom: 0;
+      position: relative;
+      display: block;
+      min-height: 48px;
+      .content {
+        margin-left: 58px;
+        margin-right: 20px;
+      }
+      .account-group-inner, .metadata {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .avatar {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      .account-summary-small .content {
+        margin-left: 58px;
+      }
+    }
+  }
+  ul {
+    list-style: none;
+  }
+  ul, ol {
+    padding: 0;
+    margin: 0;
+  }
+  .stats {
+    li {
+      display: inline;
+    }
+    li:first-child a {
+      border-left: 0;
+    }
+    a {
+      float: left;
+      padding: 7px 12px;
+      color: #999;
+      font-size: 10px;
+      line-height: 16px;
+      text-transform: uppercase;
+      border-left: 1px solid #E8E8E8;
+      strong {
+        display: block;
+        color: #333;
+        font-size: 14px;
+      }
+    }
+
+  }
+}

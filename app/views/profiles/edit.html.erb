@@ -35,8 +35,11 @@
 
   <div class="span4">
     <div class="box">
-      <h3 class="title" ><%= t("users.delete_my_account")%></h3>
-      <%= image_tag(current_user.profile.avatar.url(:normal)) %>
+      <h3 class="title">修改头像</h3>
+      <%= image_tag(current_user.profile.avatar.url(:huge), class: 'vertical-inherit') %>
+      <%= image_tag(current_user.profile.avatar.url(:large), class: 'vertical-inherit') %>
+      <%= image_tag(current_user.profile.avatar.url(:normal), class: 'vertical-inherit') %>
     </div>
+    <%= render "common/mini_profile" %>
   </div>
 </div>
