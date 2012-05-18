@@ -52,4 +52,8 @@ module ApplicationHelper
     return prefix + content_tag(:ul, crumb, class: "breadcrumb menu clearfix")
   end
 
+  def display_name
+    display_name = current_user.profile.nickname? ? current_user.profile.nickname : current_user.username
+  end
+
 end

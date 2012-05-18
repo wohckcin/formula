@@ -1,10 +1,10 @@
     <div class="box mini-profile">
       <div class="profile-summary">
-        <a href="#" class="account-summary account-summary-small" data-nav="profile">
+        <a href="#" class="account-summary" data-nav="profile">
           <div class="content">
             <div class="account-group">
               <%= image_tag(current_user.profile.avatar.url(:normal), class: 'avatar') %>
-              <b class="nickname"><%= current_user.profile.nickname || current_user.username %></b>
+              <b class="nickname"><%= display_name %></b>
               <small class="metadata">View my profile page</small>
             </div>
           </div>
