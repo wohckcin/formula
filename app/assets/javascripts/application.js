@@ -15,3 +15,4 @@
 //= require bootstrap
 //= require bootstrap-datepicker
 //= require_tree .
+$('.dropdown-toggle').dropdown()
