@@ -5,13 +5,6 @@ GIT
     bootstrap-datepicker-rails (0.6.13)
       railties (>= 3.0)
 
-GIT
-  remote: git://github.com/thomas-mcdonald/bootstrap-sass.git
-  revision: 261ccd43b6c1b48a7bc2f60fe591dc698f2a7e1c
-  branch: 2.0.3
-  specs:
-    bootstrap-sass (2.0.3)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -46,6 +39,7 @@ GEM
     annotate (2.4.1.beta1)
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
+    bootstrap-sass (2.0.3.1)
     builder (3.0.0)
     cancan (1.6.7)
     capybara (1.1.2)
@@ -208,7 +202,7 @@ PLATFORMS
 DEPENDENCIES
   annotate
   bootstrap-datepicker-rails!
-  bootstrap-sass!
+  bootstrap-sass (~> 2.0.3)
   cancan
   capybara (~> 1.1.2)
   carrierwave
