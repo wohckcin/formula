@@ -130,8 +130,4 @@ module ApplicationHelper
     end
   end
 
-  def display_name
-    display_name = current_user.profile.nickname? ? current_user.profile.nickname : current_user.username
-  end
-
 end

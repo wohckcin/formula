@@ -10,10 +10,10 @@ class User < ActiveRecord::Base
 
   # Virtual attribute for authenticating by either username or email
   # This is in addition to a real persisted field like 'username'
-  attr_accessor :login
+  attr_accessor :login, :display_name
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :login, :username, :email, :password, :password_confirmation, :remember_me
+  attr_accessible :login, :username, :email, :password, :password_confirmation, :remember_me, :display_name
   # attr_accessible :title, :body
 
   validates :username, presence: true, uniqueness: { case_sensitive: false }
@@ -45,6 +45,11 @@ class User < ActiveRecord::Base
     else
       where(conditions).first
     end
+  end
+
+  # if nickname is not null use nickname, otherwise use username instead
+  def display_name
+    self.display_name = self.profile.nickname? ? self.profile.nickname : self.username
   end
 
 end

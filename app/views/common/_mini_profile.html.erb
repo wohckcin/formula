@@ -4,7 +4,7 @@
           <div class="content">
             <div class="account-group">
               <%= image_tag(current_user.profile.avatar.url(:normal), class: 'avatar') %>
-              <b class="nickname"><%= display_name %></b>
+              <b class="nickname"><%= current_user.display_name %></b>
               <small class="metadata">View my profile page</small>
             </div>
           </div>
