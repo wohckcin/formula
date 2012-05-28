@@ -7,7 +7,7 @@ class CreateNodes < ActiveRecord::Migration
       t.references :section
       t.text :description
       t.integer :postion_at, :null => false, :default => ""
-      t.integer :posts_count, :null => false, :default => ""
+      t.integer :topics_count, :null => false, :default => ""
 
       t.timestamps
     end

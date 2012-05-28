@@ -19,9 +19,12 @@ class User < ActiveRecord::Base
   validates :username, presence: true, uniqueness: { case_sensitive: false }
   validates :email, presence:true, uniqueness: { case_sensitive: false }
 
-  # join profiles to users
+  # join profiles to users => one to one
   has_one :profile, dependent: :destroy
   accepts_nested_attributes_for :profile
+
+  # join topics to users => one to many
+  has_many :topics
 
   # Set a default of an empty profile when a new User record is instantiated.
   # Passing :profile => nil to User.new will instantiate a person with no profile.
