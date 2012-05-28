@@ -20,7 +20,7 @@
 
 class Topic < ActiveRecord::Base
   belongs_to :user, inverse_of: :topics
-  belongs_to :node
+  belongs_to :node, counter_cache: true
   has_many :replies, dependent: :destroy
   has_many :likes, as: :likeable, dependent: :destroy
   attr_accessible :content, :content_html, :likes_count, :replied_at, :replies_count, :sticky_at, :title, :type, :views_count

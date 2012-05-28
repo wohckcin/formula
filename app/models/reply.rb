@@ -14,6 +14,6 @@
 
 class Reply < ActiveRecord::Base
   belongs_to :user, inverse_of: :replies
-  belongs_to :topic, inverse_of: :replies
+  belongs_to :topic, inverse_of: :replies, counter_cache: true
   attr_accessible :content, :content_html, :likes_count
 end
