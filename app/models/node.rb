@@ -1,8 +1,3 @@
-class Node < ActiveRecord::Base
-  belongs_to :section
-  has_many :topics
-  attr_accessible :description, :name, :postion_at, :posts_count, :slug, :status
-end
 # == Schema Information
 #
 # Table name: nodes
@@ -19,3 +14,8 @@ end
 #  updated_at   :datetime        not null
 #
 
+class Node < ActiveRecord::Base
+  belongs_to :section
+  has_many :topics
+  attr_accessible :description, :name, :postion_at, :posts_count, :slug, :status
+end

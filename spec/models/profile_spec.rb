@@ -1,8 +1,3 @@
-require 'spec_helper'
-
-describe Profile do
-  pending "add some examples to (or delete) #{__FILE__}"
-end
 # == Schema Information
 #
 # Table name: profiles
@@ -21,3 +16,8 @@ end
 #  updated_at :datetime        not null
 #
 
+require 'spec_helper'
+
+describe Profile do
+  pending "add some examples to (or delete) #{__FILE__}"
+end

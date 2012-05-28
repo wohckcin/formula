@@ -1,8 +1,3 @@
-require 'spec_helper'
-
-describe User do
-  pending "add some examples to (or delete) #{__FILE__}"
-end
 # == Schema Information
 #
 # Table name: users
@@ -25,3 +20,8 @@ end
 #  username               :string(255)     default(""), not null
 #
 
+require 'spec_helper'
+
+describe User do
+  pending "add some examples to (or delete) #{__FILE__}"
+end

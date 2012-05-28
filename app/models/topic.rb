@@ -1,8 +1,3 @@
-class Topic < ActiveRecord::Base
-  belongs_to :user
-  belongs_to :node
-  attr_accessible :content, :content_html, :likes_count, :replied_at, :replies_count, :sticky_at, :title, :type, :views_count
-end
 # == Schema Information
 #
 # Table name: topics
@@ -23,3 +18,10 @@ end
 #  updated_at    :datetime        not null
 #
 
+class Topic < ActiveRecord::Base
+  belongs_to :user, inverse_of: :topics
+  belongs_to :node
+  has_many :replies, dependent: :destroy
+  has_many :likes, as: :likeable, dependent: :destroy
+  attr_accessible :content, :content_html, :likes_count, :replied_at, :replies_count, :sticky_at, :title, :type, :views_count
+end

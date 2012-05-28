@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120528111517) do
+ActiveRecord::Schema.define(:version => 20120528123312) do
+
+  create_table "likes", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "likeable_id"
+    t.string   "likeable_type"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "likes", ["likeable_id"], :name => "index_likes_on_likeable_id"
+  add_index "likes", ["likeable_type"], :name => "index_likes_on_likeable_type"
+  add_index "likes", ["user_id"], :name => "index_likes_on_user_id"
 
   create_table "nodes", :force => true do |t|
     t.string   "slug"
@@ -40,6 +52,19 @@ ActiveRecord::Schema.define(:version => 20120528111517) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "replies", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "topic_id"
+    t.text     "content"
+    t.text     "content_html"
+    t.integer  "likes_count",  :default => 0, :null => false
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+  end
+
+  add_index "replies", ["topic_id"], :name => "index_replies_on_topic_id"
+  add_index "replies", ["user_id"], :name => "index_replies_on_user_id"
 
   create_table "roles", :force => true do |t|
     t.string   "name"

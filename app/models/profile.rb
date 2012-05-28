@@ -1,10 +1,3 @@
-class Profile < ActiveRecord::Base
-  attr_accessible :avatar, :bio, :birthday, :gender, :location, :nickname, :tagline, :user_id, :website
-  validates :nickname, uniqueness: true
-  belongs_to :user
-
-  mount_uploader :avatar, AvatarUploader
-end
 # == Schema Information
 #
 # Table name: profiles
@@ -23,3 +16,10 @@ end
 #  updated_at :datetime        not null
 #
 
+class Profile < ActiveRecord::Base
+  attr_accessible :avatar, :bio, :birthday, :gender, :location, :nickname, :tagline, :user_id, :website
+  validates :nickname, uniqueness: true
+  belongs_to :user
+
+  mount_uploader :avatar, AvatarUploader
+end

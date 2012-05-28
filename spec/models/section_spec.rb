@@ -1,8 +1,3 @@
-require 'spec_helper'
-
-describe Section do
-  pending "add some examples to (or delete) #{__FILE__}"
-end
 # == Schema Information
 #
 # Table name: sections
@@ -18,3 +13,8 @@ end
 #  updated_at        :datetime        not null
 #
 
+require 'spec_helper'
+
+describe Section do
+  pending "add some examples to (or delete) #{__FILE__}"
+end

@@ -1,7 +1,3 @@
-class Section < ActiveRecord::Base
-  has_many :nodes
-  attr_accessible :description, :name, :nodes_count, :postion_at, :title, :title_alternative
-end
 # == Schema Information
 #
 # Table name: sections
@@ -17,3 +13,7 @@ end
 #  updated_at        :datetime        not null
 #
 
+class Section < ActiveRecord::Base
+  has_many :nodes
+  attr_accessible :description, :name, :nodes_count, :postion_at, :title, :title_alternative
+end

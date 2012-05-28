@@ -1,3 +1,25 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id                     :integer         not null, primary key
+#  email                  :string(255)     default(""), not null
+#  encrypted_password     :string(255)     default(""), not null
+#  reset_password_token   :string(255)
+#  reset_password_sent_at :datetime
+#  remember_created_at    :datetime
+#  sign_in_count          :integer         default(0)
+#  current_sign_in_at     :datetime
+#  last_sign_in_at        :datetime
+#  current_sign_in_ip     :string(255)
+#  last_sign_in_ip        :string(255)
+#  password_salt          :string(255)
+#  authentication_token   :string(255)
+#  created_at             :datetime        not null
+#  updated_at             :datetime        not null
+#  username               :string(255)     default(""), not null
+#
+
 # coding: utf-8
 class User < ActiveRecord::Base
 	rolify
@@ -23,8 +45,10 @@ class User < ActiveRecord::Base
   has_one :profile, dependent: :destroy
   accepts_nested_attributes_for :profile
 
-  # join topics to users => one to many
+  # join topics, replies, likes to users => one to many
   has_many :topics
+  has_many :replies
+  has_many :likes
 
   # Set a default of an empty profile when a new User record is instantiated.
   # Passing :profile => nil to User.new will instantiate a person with no profile.
@@ -56,25 +80,3 @@ class User < ActiveRecord::Base
   end
 
 end
-# == Schema Information
-#
-# Table name: users
-#
-#  id                     :integer         not null, primary key
-#  email                  :string(255)     default(""), not null
-#  encrypted_password     :string(255)     default(""), not null
-#  reset_password_token   :string(255)
-#  reset_password_sent_at :datetime
-#  remember_created_at    :datetime
-#  sign_in_count          :integer         default(0)
-#  current_sign_in_at     :datetime
-#  last_sign_in_at        :datetime
-#  current_sign_in_ip     :string(255)
-#  last_sign_in_ip        :string(255)
-#  password_salt          :string(255)
-#  authentication_token   :string(255)
-#  created_at             :datetime        not null
-#  updated_at             :datetime        not null
-#  username               :string(255)     default(""), not null
-#
-
