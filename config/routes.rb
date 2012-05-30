@@ -1,5 +1,27 @@
 Formula::Application.routes.draw do
 
+  # get "topics/index"
+
+  # get "topics/node"
+
+  # get "topics/recent"
+
+  # get "topics/show"
+
+  # get "topics/new"
+
+  # get "topics/create"
+
+  # get "topics/edit"
+
+  # get "topics/preview"
+
+  # get "topics/update"
+
+  # get "topics/destroy"
+
+  # get "topics/favorite"
+
   root :to => 'home#index'
 
   devise_for :users
@@ -8,6 +30,16 @@ Formula::Application.routes.draw do
 
   resources :profiles, :only => [:show, :update]
   resource :profile, :only => [:edit]
+
+  resources :topics do
+    member do
+      post :replay
+      post :favorite
+    end
+    collection do
+      post :preview
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
