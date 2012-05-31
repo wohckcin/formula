@@ -223,3 +223,6 @@ zh-CN:
         website: 个人网站
         tagline: 签名
         bio: 个人介绍
+      topic:
+        title: 标题
+        content: 正文

@@ -1,5 +1,8 @@
 <%= link_to SITE_NAME, root_path, class: 'brand' %>
 <ul class="nav">
+  <li>
+    <%= link_to('Topics', topics_path)  %> 
+  </li>
   <% if user_signed_in? %>
     <li>
     <%= link_to('Logout', destroy_user_session_path, method: 'delete') %>        
@@ -15,6 +18,9 @@
     </li>
     <li>
       <%= link_to('Edit', edit_profile_path) %>
+    </li>
+    <li>
+      <%= link_to('New Topic', new_topic_path) %>
     </li>
     <% if current_user.has_role? :admin %>
       <li>

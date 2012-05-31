@@ -1,25 +1,26 @@
-    <div class="box mini-profile">
-      <div class="profile-summary">
-        <a href="#" class="account-summary" data-nav="profile">
-          <div class="content">
-            <div class="account-group">
-              <%= image_tag(current_user.profile.avatar.url(:normal), class: 'avatar') %>
-              <b class="nickname"><%= current_user.display_name %></b>
-              <small class="metadata">View my profile page</small>
-            </div>
+<% if user_signed_in? %>
+  <div class="box mini-profile">
+    <div class="profile-summary">
+      <a href="#" class="account-summary" data-nav="profile">
+        <div class="content">
+          <div class="account-group">
+            <%= image_tag(current_user.profile.avatar.url(:normal), class: 'avatar') %>
+            <b class="nickname"><%= current_user.display_name %></b>
+            <small class="metadata">View my profile page</small>
           </div>
-        </a>
-      </div>
-      <div class="profile-stats">
-        <ul class="stats">
-          <li>
-            <a href="/#!/5ive" data-element-term="tweet_stats">
-              <strong>23</strong> Tweets
-            </a>
-          </li>
-          <li><a href="/#!/following" data-element-term="following_stats"><strong>53</strong> Following</a></li>
-          <li><a href="/#!/followers" data-element-term="follower_stats"><strong>9</strong> Followers</a></li>
-        </ul>
-      </div>
-      
+        </div>
+      </a>
     </div>
+    <div class="profile-stats">
+      <ul class="stats">
+        <li>
+          <a href="/#!/5ive" data-element-term="tweet_stats">
+            <strong>23</strong> Tweets
+          </a>
+        </li>
+        <li><a href="/#!/following" data-element-term="following_stats"><strong>53</strong> Following</a></li>
+        <li><a href="/#!/followers" data-element-term="follower_stats"><strong>9</strong> Followers</a></li>
+      </ul>
+    </div>
+  </div>
+<% end %>

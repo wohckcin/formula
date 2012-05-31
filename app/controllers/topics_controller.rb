@@ -16,6 +16,15 @@ class TopicsController < ApplicationController
   end
 
   def new
+    @topic = Topic.new
+    if !params[:node].blank?
+      @topic.node_id = params[:node]
+      @node = Node.find_by_id(params[:node])
+      if @node.blank?
+        render_404
+      end
+      drop_breadcrumb("#{@node.name}", node_topics_path(@node.id))
+    end
   end
 
   def create

@@ -25,7 +25,7 @@ class Topic < ActiveRecord::Base
   has_many :replies, dependent: :destroy
   has_many :likes, as: :likeable, dependent: :destroy
   attr_accessible :content, :content_html, :likes_count, :replied_at, :replies_count, :title, :type, :views_count
-  validates_presence_of :user_id, :title, :body, :node_id
+  validates_presence_of :user_id, :title, :content, :node_id
 
   # scopes
   # recently published

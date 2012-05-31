@@ -29,15 +29,15 @@ class Ability
     if user.has_role? :admin
       can :manage, :all
     else
-      # # Topic
-      # can :create, Topic
-      # can :favorite, Topic
-      # can :update, Topic do |topic|
-      #   (topic.user_id == user.id)
-      # end
-      # can :destroy, Topic do |topic|
-      #    (topic.user_id == user.id)
-      # end
+      # Topic
+      can :create, Topic
+      can :favorite, Topic
+      can :update, Topic do |topic|
+        (topic.user_id == user.id)
+      end
+      can :destroy, Topic do |topic|
+         (topic.user_id == user.id)
+      end
       can :read, :all
     end
   end
