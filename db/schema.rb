@@ -31,13 +31,32 @@ ActiveRecord::Schema.define(:version => 20120528123312) do
     t.string   "status"
     t.integer  "section_id"
     t.text     "description"
-    t.integer  "postion_at",   :default => 0, :null => false
-    t.integer  "topics_count", :default => 0, :null => false
-    t.datetime "created_at",                  :null => false
-    t.datetime "updated_at",                  :null => false
+    t.integer  "postion_at",  :default => 0, :null => false
+    t.integer  "posts_count", :default => 0, :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
   add_index "nodes", ["section_id"], :name => "index_nodes_on_section_id"
+
+  create_table "posts", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.text     "content"
+    t.text     "content_html"
+    t.string   "type"
+    t.integer  "node_id"
+    t.integer  "comments_count", :default => 0, :null => false
+    t.integer  "likes_count",    :default => 0, :null => false
+    t.integer  "views_count",    :default => 0, :null => false
+    t.datetime "commented_at"
+    t.datetime "sticky_at"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
+
+  add_index "posts", ["node_id"], :name => "index_posts_on_node_id"
+  add_index "posts", ["user_id"], :name => "index_posts_on_user_id"
 
   create_table "profiles", :force => true do |t|
     t.integer  "user_id"

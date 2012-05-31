@@ -10,7 +10,7 @@
       <li><%= link_to(t("menu.edit_account_path"),edit_user_registration_path) %></li>
       <li><%= link_to(t("menu.cpanel"), "/cpanel") if current_user.has_role? :admin %></li>
       <li class="divider"></li>
-      <li><%= link_to(t("common.logout"), destroy_user_session_path ) %></li>
+      <li><%= link_to(t("common.logout"), destroy_user_session_path, method: 'delete' ) %></li>
       <% end -%>
     </li>
 

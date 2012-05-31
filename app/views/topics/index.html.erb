@@ -1,2 +1,22 @@
-<h1>Topics#index</h1>
-<p>Find me in app/views/topics/index.html.erb</p>
+<div class="row">
+  <div class="span8">
+    <div class="box">
+      <% if @topics.any? %>
+        <ul class="topics">
+        <%= render partial: "topics/topic_item", collection: @topics %>
+        </ul>
+        <%= will_paginate @topics, inner_window: 2 %>
+      <% else %>
+        <strong>Srroy, have nothing yet! 对不起，还没有任何内容！</strong>
+      <% end %>
+    </div>
+  </div>
+  <div class="span4">
+    <% if user_signed_in? %>
+      <%= render "common/mini_profile" %>
+    <% end %>
+    <div class="box">
+
+    </div>
+  </div>
+</div>

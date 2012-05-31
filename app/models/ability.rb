@@ -25,8 +25,26 @@ class Ability
     #
     # See the wiki for details: https://github.com/ryanb/cancan/wiki/Defining-Abilities
     user ||= User.new # guest user (not logged in)
+    basic_read_only
     if user.has_role? :admin
       can :manage, :all
+    else
+      # # Topic
+      # can :create, Topic
+      # can :favorite, Topic
+      # can :update, Topic do |topic|
+      #   (topic.user_id == user.id)
+      # end
+      # can :destroy, Topic do |topic|
+      #    (topic.user_id == user.id)
+      # end
+      can :read, :all
     end
   end
+
+  protected
+    def basic_read_only
+      can :read,Topic
+      can :node,Topic
+    end
 end

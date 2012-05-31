@@ -1,27 +1,5 @@
 Formula::Application.routes.draw do
 
-  # get "topics/index"
-
-  # get "topics/node"
-
-  # get "topics/recent"
-
-  # get "topics/show"
-
-  # get "topics/new"
-
-  # get "topics/create"
-
-  # get "topics/edit"
-
-  # get "topics/preview"
-
-  # get "topics/update"
-
-  # get "topics/destroy"
-
-  # get "topics/favorite"
-
   root :to => 'home#index'
 
   devise_for :users
