@@ -24,7 +24,7 @@ class Topic < ActiveRecord::Base
   belongs_to :node, counter_cache: true
   has_many :replies, dependent: :destroy
   has_many :likes, as: :likeable, dependent: :destroy
-  attr_accessible :content, :content_html, :likes_count, :replied_at, :replies_count, :title, :type, :views_count
+  attr_accessible :content, :content_html, :likes_count, :replied_at, :replies_count, :title, :type, :views_count, :node_id
   validates_presence_of :user_id, :title, :content, :node_id
 
   # scopes
