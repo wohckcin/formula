@@ -28,6 +28,16 @@ class TopicsController < ApplicationController
   end
 
   def create
+    pt = params[:topic]
+    @topic = Topic.new(pt)
+    @topic.user_id = current_user.id
+    @topic.node_id = params[:node] || pt[:node_id]
+
+    if @topic.save
+      redirect_to(topic_path(@topic.id), notice: t("topics.create_topic_success"))
+    else
+      render :action => "new"
+    end
   end
 
   def edit

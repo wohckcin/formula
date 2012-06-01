@@ -35,4 +35,13 @@ class Topic < ActiveRecord::Base
   # highly recommended
   scope :recommended, where("sticky_at IS NOT NULL").order("sticky_at DESC")
 
+  # add markdown convert content_html field
+  before_save :markdown_content
+  # scope :without_content, without(:content)
+
+  private
+    def markdown_content
+      self.content_html = MarkdownTopicConverter.format(self.content) if self.content_changed?
+    end
+
 end

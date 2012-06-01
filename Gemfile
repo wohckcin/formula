@@ -29,6 +29,7 @@ gem 'rolify'
 
 # Css Framework
 gem 'bootstrap-sass', '~> 2.0.3'
+
 # From
 gem 'simple_form'
 gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
@@ -40,6 +41,11 @@ gem "will_paginate", "~> 3.0.3"
 # Attchment
 gem "carrierwave"
 gem 'mini_magick'
+
+# Markdown adapter
+gem "redcarpet", "~> 2.1.1"
+gem "pygments.rb", "~> 0.2.12"
+gem "rails_autolink", "~> 1.0.9"
 
 # TEST with capybara and Rspec
 group :development, :test do
