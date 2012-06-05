@@ -37,7 +37,11 @@ class Topic < ActiveRecord::Base
 
   # add markdown convert content_html field
   before_save :markdown_content
-  # scope :without_content, without(:content)
+  scope :without_content, except(:content)
+
+  def visited
+    self.class.increment_counter(:views_count, self.id)
+  end
 
   private
     def markdown_content

@@ -1,6 +1,7 @@
 class TopicsController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :node, :recent, :show]
   load_and_authorize_resource only: [:new, :create, :edit, :preview, :update, :destroy, :favorite] 
+  # after_filter :add_views_count, only: [:show]
 
   def index
     @topics = Topic.last_actived.includes(:node, :user).paginate(page: params[:page], per_page: 20)
@@ -13,6 +14,9 @@ class TopicsController < ApplicationController
   end
 
   def show
+    @topic = Topic.without_content.includes(:user, :node).find(params[:id])
+    @topic.visited
+    @node = @topic.node
   end
 
   def new
@@ -36,7 +40,7 @@ class TopicsController < ApplicationController
     if @topic.save
       redirect_to(topic_path(@topic.id), notice: t("topics.create_topic_success"))
     else
-      render :action => "new"
+      render action: "new"
     end
   end
 
@@ -53,5 +57,10 @@ class TopicsController < ApplicationController
   end
 
   def favorite
+  end
+
+  protected
+  def add_views_count
+    @topic.visited
   end
 end
