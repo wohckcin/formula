@@ -10,7 +10,7 @@
           <%= f.input :password, required: true %>
           <%= f.input :password_confirmation, required: true %>
           <div class="form-actions">
-            <%= f.button :submit, t('common.register'), class: 'btn btn-primary span2', disable_with: t("common.submitting") %>
+            <%= f.button :submit, t('common.register'), class: 'btn btn-primary span2', data: {disable_with: t("common.submitting")} %>
           </div>
         </fieldset>  
       <% end %>
