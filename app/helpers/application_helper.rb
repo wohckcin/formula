@@ -102,6 +102,12 @@ module ApplicationHelper
     return ul.to_s
   end
 
+  def timeago(time, options = {})
+    options[:class] 
+    options[:class] = options[:class].blank? ? "timeago" : [options[:class],"timeago"].join(" ")
+    content_tag(:abbr, "", options.merge(:title => time.iso8601)) if time
+  end
+
   # Composite pattern
   class TagNode
     include ActionView::Helpers::TagHelper
@@ -129,5 +135,5 @@ module ApplicationHelper
       @children << tag_node
     end
   end
-
+  
 end

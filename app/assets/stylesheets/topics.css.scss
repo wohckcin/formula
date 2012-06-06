@@ -1,3 +1,24 @@
 // Place all the styles related to the Topics controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#topic-show {
+  .topic-header {
+    position: relative;
+    display: block;
+    min-height: 96px;
+    .content {
+      margin-right: 106px;
+      h1 {
+        font-size:150%;
+      }
+      .avatar {
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+      small.metadata {
+        color: #999;
+      }   
+    }
+  }
+}

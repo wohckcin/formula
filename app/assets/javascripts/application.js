@@ -15,5 +15,8 @@
 //= require bootstrap
 //= require bootstrap-datepicker
 //= require jquery.chosen
+//= require jquery.timeago
+//= require jquery.timeago.settings
 //= require_tree .
 $('.dropdown-toggle').dropdown()
+$("abbr.timeago").timeago()

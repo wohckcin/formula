@@ -14,7 +14,7 @@ class TopicsController < ApplicationController
   end
 
   def show
-    @topic = Topic.without_content.includes(:user, :node).find(params[:id])
+    @topic = Topic.includes(:user, :node).find(params[:id])
     @topic.visited
     @node = @topic.node
   end

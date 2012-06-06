@@ -1,2 +1,24 @@
-<h1>Topics#show</h1>
-<p>Find me in app/views/topics/show.html.erb</p>
+<div class="row">
+  <div class="span8">
+    <div id="topic-show" class="box">
+        <div class="topic-header">
+          <div class="content">
+            <%= image_tag(@topic.user.profile.avatar.url(:large), class: 'avatar pull-right') %>
+            <h1 class="entry-title"><%= truncate(@topic.title, length: 100) %></h1>
+            <small class="metadata"><%= timeago(@topic.created_at, class: "published") %><%= t("common.by") %> <%= link_to(@topic.user.display_name, user_path, class: '') %> <%= t("common.create_item")%> <%= @topic.views_count %> <%= t("common.read_times")%></small>
+          </div>
+        </div>
+        <div class="topic-content"></div>
+        <div class="topic-toolbox"></div>    
+    </div>
+    <div class="box">
+      
+    </div>
+  </div>
+  <div class="span4">
+    <%= render "common/mini_profile" %>
+    <div class="box">
+
+    </div>
+  </div>
+</div>
