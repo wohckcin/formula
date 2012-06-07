@@ -31,10 +31,10 @@ ActiveRecord::Schema.define(:version => 20120528123312) do
     t.string   "status"
     t.integer  "section_id"
     t.text     "description"
-    t.integer  "postion_at",  :default => 0, :null => false
-    t.integer  "posts_count", :default => 0, :null => false
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
+    t.integer  "postion_at",   :default => 0, :null => false
+    t.integer  "topics_count", :default => 0, :null => false
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
   end
 
   add_index "nodes", ["section_id"], :name => "index_nodes_on_section_id"
