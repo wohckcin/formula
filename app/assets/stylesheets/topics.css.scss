@@ -1,6 +1,8 @@
 // Place all the styles related to the Topics controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// Topic show
 #topic-show {
   .topic-header {
     position: relative;
@@ -22,7 +24,6 @@
         color: #999;
         display: block;
         .author {
-	      font-weight: bold; 
         }
       }
       .topic-content {
@@ -50,5 +51,71 @@
         }
       }
     }      
+  }
+}
+
+// Topic index
+ul.topics {
+  padding: 0;
+  // margin: 0;
+  margin: 0 -10px;
+  list-style: none;
+  li:first-child {
+    border-top: 1px solid #DDD;
+  }
+  li.topic-item {
+    padding: 10px;
+    border-bottom: 1px solid #DDD;
+    .item-detail {
+      position: relative;
+      display: block;
+      .content {
+        min-height: 48px;
+        margin-left: 58px;
+        padding-top: 4px;
+        .avatar{
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+        .item-title {
+          display: block;
+          a {
+            color: #778087;
+            font-size: 120%;
+            line-height: 130%;
+          }
+          a:hover {
+            color: #4D5256;
+            text-decoration: none;
+            text-shadow:
+              0 0 2px rgba(0,0,0,0.2),
+              0 0 3px rgba(0,0,0,0.2),
+              0 0 4px rgba(0,0,0,0.2);
+              -webkit-transition: all .2s linear;
+                 -moz-transition: all .2s linear;
+                      transition: all .2s linear;
+          }
+        }
+        .small {
+          font-size: 90%;
+          color: #CCC;
+          a {
+            color: #778087;
+          }
+          a:hover {
+            color: #4D5256;
+            text-decoration: none;
+            text-shadow:
+              0 0 2px rgba(0,0,0,0.2),
+              0 0 3px rgba(0,0,0,0.2),
+              0 0 4px rgba(0,0,0,0.2);
+              -webkit-transition: all .2s linear;
+                 -moz-transition: all .2s linear;
+                      transition: all .2s linear;
+          }
+        }
+      }     
+    }
   }
 }

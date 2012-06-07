@@ -5,7 +5,7 @@
           <div class="content">
             <%= image_tag(@topic.user.profile.avatar.url(:large), class: 'avatar pull-right') %>
             <h1 class="entry-title"><%= truncate(@topic.title, length: 64) %></h1>
-            <small class="metadata"><%= t("common.by") %> <%= link_to(@topic.user.display_name, user_path, class: 'author') %> <%= timeago(@topic.created_at, class: "published") %><%= t("common.published")%>, <%= @topic.views_count %> <%= t("common.read_times")%></small>
+            <small class="metadata"><%= t("common.by") %> <strong><%= link_to(@topic.user.display_name, user_path(@topic.user), class: 'author') %></strong> <%= timeago(@topic.created_at, class: "published") %><%= t("common.published")%>, <%= @topic.views_count %> <%= t("common.read_times")%></small>
           <div class="topic-content">
             <%= raw @topic.content_html %>
           </div>

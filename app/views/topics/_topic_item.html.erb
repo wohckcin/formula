@@ -1,2 +1,9 @@
-<li>
+<li class="topic-item">
+  <div class="item-detail">
+    <div class="content">
+      <%= image_tag(topic_item.user.profile.avatar.url(:normal), class: 'avatar pull-left') %>
+      <span class="item-title"><%= link_to(truncate(topic_item.title, length: 64), topic_path(topic_item), title: topic_item.title) %></span>
+      <span class="small"><strong><%= link_to(topic_item.user.display_name, user_path(topic_item.user), class: 'author') %></strong> • <%= timeago(topic_item.created_at, class: "published") %> • </span>
+    </div>
+  </div>
 </li>
