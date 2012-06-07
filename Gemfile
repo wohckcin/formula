@@ -29,6 +29,7 @@ gem 'rolify'
 
 # Css Framework
 gem 'bootstrap-sass', '~> 2.0.3'
+gem 'font-awesome-rails'
 
 # From
 gem 'simple_form'

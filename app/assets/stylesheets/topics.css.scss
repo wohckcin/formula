@@ -5,20 +5,44 @@
   .topic-header {
     position: relative;
     display: block;
-    min-height: 96px;
+    min-height: 72px;
     .content {
-      margin-right: 106px;
-      h1 {
+      margin-right: 82px;
+      h1.entry-title{
         font-size:150%;
       }
       .avatar {
         position: absolute;
         top: 0;
         right: 0;
+        height: 72px;
+        width: 72px;
       }
       small.metadata {
         color: #999;
+        display: block;
+        .author {
+	      font-weight: bold; 
+        }
+      }
+      .topic-content {
+        padding: 1em 0 1em 0;
       }   
     }
+  }
+  .topic-toolbox {
+    color: #999;
+    min-height: 20px; 
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      li {
+        display: inline;
+        i {
+          font-size: 120%;
+        }
+      }
+    }      
   }
 }
