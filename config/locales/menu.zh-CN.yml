@@ -27,6 +27,7 @@ zh-CN:
     created_at: "于%{time}发布"
     until: "截止"
     last_by: "最后由"
+    reply_from: "最后回复来自"
     floor: "楼"
     reply_at: "于%{time}回复"
     create_item: "中发起"

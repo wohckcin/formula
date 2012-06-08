@@ -37,10 +37,14 @@ class Topic < ActiveRecord::Base
 
   # add markdown convert content_html field
   before_save :markdown_content
-  scope :without_content, except(:content)
+  # scope :without_content, except(:content)
 
   def visited
     self.class.increment_counter(:views_count, self.id)
+  end
+
+  def last_reply
+    replies.recent.limit(1).first
   end
 
   private
