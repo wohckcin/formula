@@ -22,6 +22,7 @@ gem 'jquery-rails'
 
 # User Authentication
 gem 'devise'
+gem 'devise-encryptable'
 
 # Permission
 gem 'cancan'

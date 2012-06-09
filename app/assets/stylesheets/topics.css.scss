@@ -23,6 +23,7 @@
       small.metadata {
         color: #999;
         display: block;
+        line-height: 28px;
         .author {
         }
       }
@@ -72,7 +73,6 @@ ul.topics {
       .content {
         min-height: 48px;
         margin-left: 58px;
-        padding-top: 4px;
         .avatar{
           position: absolute;
           top: 0;
@@ -83,7 +83,7 @@ ul.topics {
           a {
             color: #778087;
             font-size: 120%;
-            line-height: 130%;
+            line-height: 150%;
           }
           a:hover {
             color: #4D5256;
