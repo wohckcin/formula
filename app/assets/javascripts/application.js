@@ -20,12 +20,16 @@
 //= require_tree .
 
 $(function() {
-  // Bootstrap style like DatePicker
-  $('.dropdown-toggle').dropdown()
+  // bootstrap-dropdown
+  $('.dropdown-toggle').dropdown();
 
   // Cliend-side timeago by jQuery
-  $('abbr.timeago').timeago()
+  $('abbr.timeago').timeago();
 
   // Select Chosen 样式
-  $('.chosen').chosen()
+  $('.chosen').chosen();
+
+
+
+  $("a.tips").tooltip();
 });

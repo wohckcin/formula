@@ -17,30 +17,42 @@
             <li><i class="icon-heart"></i><strong> 23</strong></li>
             <li><i class="icon-comment"></i><strong> 45</strong></li>
             <li><i class="icon-bookmark"></i></li>
-            <% if owner?(@topic) or current_user.has_role? :admin %>
+            <% if owner?(@topic) or admin? %>
             <li>
-              <%= link_to edit_topic_path(@topic), class: "", title: "修改本帖" do %>
+              <%= link_to edit_topic_path(@topic), class: 'tips', title: "修改本帖" do %>
                 <i class="icon-pencil"></i>
               <% end %>
             </li>
             <li>
-              <%= link_to topic_path(@topic.id), method: :delete, confirm: t("common.confirm_delete"), class: "", title: "删除本帖" do %>
+              <%= link_to topic_path(@topic.id), class: 'tips', title: "删除本帖", method: :delete, confirm: t("common.confirm_delete") do %>
                 <i class="icon-trash"></i>
               <% end %>
             </li>
             <% end %>
-          </ul>
-          
+          </ul>         
         </div>    
     </div>
-    <div class="box">
-      
+
+    <% if @replies.blank? %>
+    <div class="no-result">
+      <span><%= t('topics.no_replies') %></span>
     </div>
-  </div>
+    <% else %>
+    <div id="replies-show" class="box">
+      <div class="summary">
+        <span><%= @topic.replies_count %> <%= t('topic.replies') %> <strong>|</strong> <%= t('topic.until') %> <%= l(@topic.replied_at, format: :short) %></span>
+      </div>
+      <ul class="replies">
+        <%= render partial: '', collection: @replies %>
+      </ul>
+    </div>
+    <% end %>
+
+  </div> <!-- end of left column -->
   <div class="span4">
-    <%= render "common/mini_profile" %>
+    <%= render 'common/mini_profile' %>
     <div class="box">
 
     </div>
-  </div>
+  </div> <!-- end of right column -->
 </div>

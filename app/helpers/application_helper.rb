@@ -6,6 +6,12 @@ module ApplicationHelper
     item.user_id == current_user.id
   end
 
+  def admin?(user = nil)
+    user ||= current_user
+    return false if user.blank?
+    user.has_role? :admin
+  end
+
   def render_page_title
       title = @page_title ? "#{SITE_NAME} | #{@page_title}" : SITE_NAME rescue "SITE_NAME"
       content_tag("title", title, nil, false)

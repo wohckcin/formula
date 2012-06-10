@@ -78,6 +78,19 @@
     }      
   }
 }
+.no-result {
+  background-color: transparent;
+  border: 2px dashed rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+    -webkit-border-radius: 6px;
+       -moz-border-radius: 6px;
+  text-align: center;
+  padding: 10px;
+  span {
+    color: rgba(0, 0, 0, 0.25);
+    line-height: 150%;
+  }
+}
 
 // Topic index
 ul.topics {

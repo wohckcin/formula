@@ -17,6 +17,7 @@ class TopicsController < ApplicationController
     @topic = Topic.includes(:user, :node).find(params[:id])
     @topic.visited
     @node = @topic.node
+    @replies = @topic.replies.includes(:user)
   end
 
   def new
