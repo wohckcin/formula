@@ -1,6 +1,11 @@
 # coding: utf-8
 module ApplicationHelper
 
+  def owner?(item)
+    return false if item.blank? or current_user.blank?
+    item.user_id == current_user.id
+  end
+
   def render_page_title
       title = @page_title ? "#{SITE_NAME} | #{@page_title}" : SITE_NAME rescue "SITE_NAME"
       content_tag("title", title, nil, false)

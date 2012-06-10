@@ -1,0 +1,14 @@
+<div class="editor_toolbar clearfix">
+  <ul class="pills span5">
+    <li class="edit active">
+      <%= link_to "#" do  %>
+        <%= content_tag :i, '' , class: 'icon-edit' %><%= t("common.editor_toolbar_edit") %>
+      <% end %>
+    </li>
+    <li class="preview">
+      <%= link_to "#" do %>
+        <%= content_tag :i, '' , class: 'icon-search' %><%= t("common.editor_toolbar_preview") %>
+      <% end %>
+    </li>
+  </ul>
+</div>

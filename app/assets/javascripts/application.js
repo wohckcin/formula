@@ -18,5 +18,14 @@
 //= require jquery.timeago
 //= require jquery.timeago.settings
 //= require_tree .
-$('.dropdown-toggle').dropdown()
-$("abbr.timeago").timeago()
+
+$(function() {
+  // Bootstrap style like DatePicker
+  $('.dropdown-toggle').dropdown()
+
+  // Cliend-side timeago by jQuery
+  $('abbr.timeago').timeago()
+
+  // Select Chosen 样式
+  $('.chosen').chosen()
+});

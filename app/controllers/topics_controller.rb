@@ -38,22 +38,38 @@ class TopicsController < ApplicationController
     @topic.node_id = params[:node] || pt[:node_id]
 
     if @topic.save
-      redirect_to(topic_path(@topic.id), notice: t("topics.create_topic_success"))
+      redirect_to(topic_path(@topic.id), notice: t('topics.create_topic_success'))
     else
-      render action: "new"
+      render action: 'new'
     end
   end
 
   def edit
+    @topic = Topic.find(params[:id])
+    @node = @topic.node
   end
 
   def preview
   end
 
   def update
+    @topic = Topic.find(params[:id])
+    pt = params[:topic]
+    @topic.node_id = pt[:node_id]
+    @topic.title = pt[:title]
+    @topic.content = pt[:content]
+
+    if @topic.save
+      redirect_to(topic_path(@topic.id), notice: t('topics.update_topic_success'))
+    else
+      render action: 'edit'
+    end
   end
 
   def destroy
+    @topic = Topic.find(params[:id])
+    @topic.destroy
+    redirect_to(topics_path, notice: t("topics.delete_topic_success"))
   end
 
   def favorite

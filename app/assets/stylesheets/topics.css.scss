@@ -24,7 +24,19 @@
         color: #999;
         display: block;
         line-height: 28px;
-        .author {
+        a.author {
+          color: #778087;
+          &:hover {
+            color: #4D5256;
+            text-decoration: none;
+            text-shadow:
+              0 0 2px rgba(0,0,0,0.2),
+              0 0 3px rgba(0,0,0,0.2),
+              0 0 4px rgba(0,0,0,0.2);
+              -webkit-transition: all .2s linear;
+                 -moz-transition: all .2s linear;
+                      transition: all .2s linear;
+          }
         }
       }
       .topic-content {
@@ -44,11 +56,23 @@
         i {
           font-size: 120%;
         }
-      }
-      li:hover {
-
-        i {
-          color: #666;
+        a {
+          color: #999;
+        }
+        &:hover {
+          i {
+            color: #666;
+            -webkit-transition: all .2s linear;
+               -moz-transition: all .2s linear;
+                    transition: all .2s linear;
+          }
+          a {
+            text-decoration: none;
+            color: #666;
+            -webkit-transition: all .2s linear;
+               -moz-transition: all .2s linear;
+                    transition: all .2s linear;
+          }
         }
       }
     }      
@@ -100,19 +124,19 @@ ul.topics {
         .small {
           font-size: 90%;
           color: #CCC;
-          a {
+          a.author {
             color: #778087;
-          }
-          a:hover {
-            color: #4D5256;
-            text-decoration: none;
-            text-shadow:
-              0 0 2px rgba(0,0,0,0.2),
-              0 0 3px rgba(0,0,0,0.2),
-              0 0 4px rgba(0,0,0,0.2);
-              -webkit-transition: all .2s linear;
-                 -moz-transition: all .2s linear;
-                      transition: all .2s linear;
+            &:hover {
+              color: #4D5256;
+              text-decoration: none;
+              text-shadow:
+                0 0 2px rgba(0,0,0,0.2),
+                0 0 3px rgba(0,0,0,0.2),
+                0 0 4px rgba(0,0,0,0.2);
+                -webkit-transition: all .2s linear;
+                   -moz-transition: all .2s linear;
+                        transition: all .2s linear;
+            }
           }
           a.node {
             background-color: whiteSmoke;
@@ -131,9 +155,41 @@ ul.topics {
             background-color: #E2E2E2;
             color: #777;
             text-shadow: none;
+            -webkit-transition: all .2s linear;
+               -moz-transition: all .2s linear;
+                    transition: all .2s linear;
           }
         }
       }     
+    }
+  }
+}
+
+// Topic new
+.form-horizontal .edit_tools {
+  margin: 0;
+  ul.pills {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    li {
+      display: inline;
+      padding: 3px;
+      a{
+        color: #444;
+        &:hover,
+        &:active {
+          text-decoration: none;
+          color: #666;
+        }
+      }
+      &.active {
+        border: 1px solid #DDD;
+        background-color: whiteSmoke;
+        border-radius: 2px;
+          -webkit-border-radius: 2px;
+             -moz-border-radius: 2px;
+      }
     }
   }
 }

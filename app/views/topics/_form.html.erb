@@ -6,12 +6,12 @@
       <%= f.text_field :title, class: "span3" %>
     <% end %>
     
-<!--     <div class="control-group edit_tools">
+    <div class="control-group edit_tools">
       <label class="control-label"></label>
       <div class="controls">
-
+        <%= render "editor_toolbar" %>
       </div>
-    </div> -->
+    </div>
     <%= f.input :content, as: :text, input_html: { class: "span5", row: '15' }%>
 
     <div class="form-actions">
