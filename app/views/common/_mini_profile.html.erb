@@ -3,7 +3,7 @@
     <div class="profile-summary">
       <a href="#" class="account-summary" data-nav="profile">
         <div class="content">
-          <div class="account-group">
+          <div class="account-group clearfix">
             <%= image_tag(current_user.profile.avatar.url(:normal), class: 'avatar') %>
             <b class="nickname"><%= current_user.display_name %></b>
             <small class="metadata">View my profile page</small>

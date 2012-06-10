@@ -2,7 +2,7 @@
   <div class="span8">
     <div id="topic-show" class="box">
         <div class="topic-header">
-          <div class="content">
+          <div class="content clearfix">
             <%= image_tag(@topic.user.profile.avatar.url(:large), class: 'avatar pull-right') %>
             <h1 class="entry-title"><%= truncate(@topic.title, length: 64) %></h1>
             <small class="metadata"><%= t("common.by") %> <strong><%= link_to(@topic.user.display_name, user_path(@topic.user), class: 'author') %></strong> <%= timeago(@topic.created_at, class: "published") %><%= t("common.published")%>, <%= @topic.views_count %> <%= t("common.read_times")%></small>
@@ -11,7 +11,7 @@
           </div>
           </div>
         </div>
-        <div class="topic-toolbox">
+        <div class="topic-toolbox clearfix">
           <ul class="pull-right">
             <li><i class="icon-eye-open"></i> <%= @topic.views_count %></li>
             <li><i class="icon-heart"></i> 23</li>

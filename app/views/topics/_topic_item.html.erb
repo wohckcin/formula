@@ -1,6 +1,6 @@
 <li class="topic-item">
   <div class="item-detail">
-    <div class="content">
+    <div class="content clearfix">
       <%= image_tag(topic_item.user.profile.avatar.url(:normal), class: "avatar pull-left") %>
       <span class="item-title">
         <%= link_to(truncate(topic_item.title, length: 64), topic_path(topic_item), title: topic_item.title) %>
