@@ -1,5 +1,11 @@
 Formula::Application.routes.draw do
 
+  get "replies/create"
+
+  get "replies/edit"
+
+  get "replies/update"
+
   root :to => 'home#index'
 
   devise_for :users
