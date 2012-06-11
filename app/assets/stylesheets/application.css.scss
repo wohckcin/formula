@@ -184,3 +184,45 @@ body,button,input,textarea,select {
 
   }
 }
+
+.statement {
+  font-family: Georgia, serif;
+  font-style: italic;
+  padding: 15px 25px;
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.3);
+  h3 {
+    color: #9A3C15;
+  }
+  span {
+    color: #333;
+  }
+}
+
+.placeholder {
+  background-color: transparent;
+  text-align: center;
+  padding: 10px;
+  margin: 0 0 20px 0;
+  border: 2px dashed rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+    -webkit-border-radius: 6px;
+       -moz-border-radius: 6px;
+  span {
+    color: rgba(0, 0, 0, 0.25);
+    line-height: 150%;
+  }
+}
+.sponsored {
+  background: rgba(0, 0, 0, 0.05);
+  text-align: center;
+  padding: 10px;
+  margin: 0 0 20px 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);;
+  border-radius: 6px;
+    -webkit-border-radius: 6px;
+       -moz-border-radius: 6px;
+  span {
+    color: rgba(0, 0, 0, 0.25);
+    line-height: 150%;
+  }
+}

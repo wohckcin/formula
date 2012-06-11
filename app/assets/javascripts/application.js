@@ -24,12 +24,11 @@ $(function() {
   $('.dropdown-toggle').dropdown();
 
   // Cliend-side timeago by jQuery
-  $('abbr.timeago').timeago();
+  $('abbr.timeago').timeago().tooltip();
 
   // Select Chosen 样式
   $('.chosen').chosen();
 
-
-
+  // bootstrap-tooltips
   $("a.tips").tooltip();
 });
