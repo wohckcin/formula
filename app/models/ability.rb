@@ -32,19 +32,21 @@ class Ability
       # Topic
       can :create, Topic
       can :favorite, Topic
-      can :update, Topic do |topic|
-        (topic.user_id == user.id)
-      end
-      can :destroy, Topic do |topic|
-         (topic.user_id == user.id)
-      end
+      can :update, Topic, user_id: user.id
+      can :destroy, Topic, user_id: user.id
+      # Reply
+      can :create, Reply
+      can :update, Reply, user_id: user.id
+      can :destroy, Reply, user_id: user.id
+      # Others
       can :read, :all
     end
   end
 
   protected
     def basic_read_only
-      can :read,Topic
-      can :node,Topic
+      can :read, Topic
+      can :node, Topic
+      can :read, Reply
     end
 end

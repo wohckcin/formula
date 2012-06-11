@@ -1,3 +1,4 @@
+# coding: utf-8
 class TopicsController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :node, :recent, :show]
   load_and_authorize_resource only: [:new, :create, :edit, :preview, :update, :destroy, :favorite] 

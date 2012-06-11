@@ -39,6 +39,19 @@ class Topic < ActiveRecord::Base
   before_save :markdown_content
   # scope :without_content, except(:content)
 
+  before_create :init_replied_at_on_create
+  def init_replied_at_on_create
+    self.replied_at = Time.now if self.replied_at.blank?
+  end
+
+  def update_last_reply(reply)
+    self.replied_at = Time.now
+    self.last_reply_id = reply.id
+    self.last_reply_user_id = reply.user_id
+    self.last_reply_user_login = reply.user.try(:login) || nil
+    self.save
+  end
+
   def visited
     self.class.increment_counter(:views_count, self.id)
   end

@@ -1,11 +1,5 @@
 Formula::Application.routes.draw do
 
-  get "replies/create"
-
-  get "replies/edit"
-
-  get "replies/update"
-
   root :to => 'home#index'
 
   devise_for :users
@@ -23,6 +17,7 @@ Formula::Application.routes.draw do
     collection do
       post :preview
     end
+    resources :replies
   end
 
   # The priority is based upon order of creation:

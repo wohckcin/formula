@@ -47,10 +47,21 @@
       </ul>
     </div>
     <% end %>
-    
-    <div class="box">
+
+    <% if current_user %>
+    <div id="reply" class="box">
+      <%= render "editor_toolbar" %>
+      <%= form_for(Reply.new, remote: true, url: topic_replies_path(@topic)) do |f| %>
+        <%= f.text_area :content, class: "reply-editor", rows: "7", tabindex: "1" %>
+        <div class="submit-buttons">
+          <%= f.submit t("topics.submit_reply"), class: 'btn', disable_with: t("common.submitting") %>
+          <span class="pull-right gray">请尽量让自己的回复能够对别人有帮助</span>
+        </div>
+      <% end %>
  
     </div>
+    <% end %>
+
   </div> <!-- end of left column -->
   <div class="span4">
     <%= render 'common/right_column' %>

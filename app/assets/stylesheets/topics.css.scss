@@ -78,6 +78,16 @@
     }      
   }
 }
+#reply {
+  textarea.reply-editor {
+    width: 590px;
+  }
+  .submit-buttons {
+    span {
+      line-height: 28px;
+    }
+  }
+}
 
 // Topic index
 ul.topics {
@@ -166,8 +176,10 @@ ul.topics {
 }
 
 // Topic new
-.form-horizontal .edit_tools {
+.form-horizontal .editor_tools {
   margin: 0;
+}
+.editor_toolbar {
   ul.pills {
     padding: 0;
     margin: 0;

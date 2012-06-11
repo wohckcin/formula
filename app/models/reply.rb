@@ -18,4 +18,9 @@ class Reply < ActiveRecord::Base
   attr_accessible :content, :content_html, :likes_count
 
   scope :recent, order('id DESC')
+
+  after_create :update_parent_topic
+  def update_parent_topic
+    topic.update_last_reply(self)
+  end
 end
