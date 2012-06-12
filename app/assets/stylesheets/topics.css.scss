@@ -53,6 +53,7 @@
       list-style: none;
       li {
         display: inline;
+        line-height: 20px;
         i {
           font-size: 120%;
         }
@@ -79,11 +80,73 @@
   }
 }
 #reply {
-
   .submit-buttons {
     span {
       line-height: 28px;
     }
+  }
+}
+#replies-show {
+  .summary {
+    margin-bottom: 10px;
+  }
+}
+ul.replies {
+  padding: 0;
+  margin: 0 -10px;
+  list-style: none;
+  li:first-child {
+    border-top: 1px solid #DDD;
+  }
+  li.reply-item {
+    padding: 10px;
+    border-bottom: 1px solid #DDD;
+    .item-detail {
+      position: relative;
+      display: block;
+      .content {
+        min-height: 48px;
+        margin-left: 58px;
+        margin-right: 10px;
+        .avatar{
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+        .small {
+          font-size: 90%;
+          color: #CCC;
+          display: block;
+          line-height: 24px;
+          a.author {
+            color: #778087;
+            &:hover {
+              color: #4D5256;
+              text-decoration: none;
+              text-shadow:
+                0 0 2px rgba(0,0,0,0.2),
+                0 0 3px rgba(0,0,0,0.2),
+                0 0 4px rgba(0,0,0,0.2);
+                -webkit-transition: all .2s linear;
+                   -moz-transition: all .2s linear;
+                        transition: all .2s linear;
+            }
+          }
+          .published {
+            margin: 0 1em;
+          }
+          .likes {
+            color: #999;
+            i {
+              // margin-right: 1px;
+            }
+          }         
+        }
+        .reply-content {
+          line-height: 24px;
+        }
+      }  
+    }   
   }
 }
 

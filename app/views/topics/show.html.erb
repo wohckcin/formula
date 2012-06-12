@@ -13,9 +13,9 @@
         </div>
         <div class="topic-toolbox clearfix">
           <ul class="pull-right">
-            <li><i class="icon-eye-open"></i><strong> <%= @topic.views_count %></strong></li>
-            <li><i class="icon-heart"></i><strong> 23</strong></li>
-            <li><i class="icon-comment"></i><strong> 45</strong></li>
+            <li><i class="icon-eye-open"></i><strong><%= @topic.views_count %></strong></li>
+            <li><i class="icon-heart"></i><strong>23</strong></li>
+            <li><i class="icon-comment"></i><strong>45</strong></li>
             <li><i class="icon-bookmark"></i></li>
             <% if owner?(@topic) or admin? %>
             <li>
@@ -40,7 +40,7 @@
     <% else %>
     <div id="replies-show" class="box">
       <div class="summary">
-        <span class="gray"><%= @topic.replies_count %> <%= t('topics.replies') %> <strong>|</strong> <%= t('topics.until') %> <%= l(@topic.replied_at, format: :long) %></span>
+        <%= render 'summary', topic: @topic %>
       </div>
       <ul class="replies">
         <%= render partial: 'replies/reply_item', collection: @replies %>
