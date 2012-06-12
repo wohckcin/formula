@@ -46,9 +46,6 @@ class Topic < ActiveRecord::Base
 
   def update_last_reply(reply)
     self.replied_at = Time.now
-    self.last_reply_id = reply.id
-    self.last_reply_user_id = reply.user_id
-    self.last_reply_user_login = reply.user.try(:login) || nil
     self.save
   end
 

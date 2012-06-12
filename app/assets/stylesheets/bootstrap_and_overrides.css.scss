@@ -7,4 +7,8 @@ body {
   padding-top: 60px;
   background: none;
 }
+textarea.span-textarea {
+  width: (($gridColumnWidth) * 8) + ($gridGutterWidth * 7) - 30;
+  // width: 98%;
+}
 @import "bootstrap-responsive";

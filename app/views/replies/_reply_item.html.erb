@@ -1,0 +1,15 @@
+<li class="reply-item">
+  <div class="item-detail">
+    <div class="content clearfix">
+      <%= image_tag(reply_item.user.profile.avatar.url(:normal), class: "avatar pull-left") %>
+      <span class="small">
+        <strong>
+          <%= link_to(reply_item.user.display_name, user_path(reply_item.user), class: "author") %>
+        </strong>
+      </span>
+      <span class="item-title">
+        <%= raw reply_item.content %>
+      </span>
+    </div>
+  </div>
+</li>

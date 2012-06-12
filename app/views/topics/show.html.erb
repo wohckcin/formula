@@ -40,10 +40,10 @@
     <% else %>
     <div id="replies-show" class="box">
       <div class="summary">
-        <span><%= @topic.replies_count %> <%= t('topic.replies') %> <strong>|</strong> <%= t('topic.until') %> <%= l(@topic.replied_at, format: :short) %></span>
+        <span class="gray"><%= @topic.replies_count %> <%= t('topics.replies') %> <strong>|</strong> <%= t('topics.until') %> <%= l(@topic.replied_at, format: :long) %></span>
       </div>
       <ul class="replies">
-        <%= render partial: '', collection: @replies %>
+        <%= render partial: 'replies/reply_item', collection: @replies %>
       </ul>
     </div>
     <% end %>
@@ -52,7 +52,7 @@
     <div id="reply" class="box">
       <%= render "editor_toolbar" %>
       <%= form_for(Reply.new, remote: true, url: topic_replies_path(@topic)) do |f| %>
-        <%= f.text_area :content, class: "reply-editor", rows: "7", tabindex: "1" %>
+        <%= f.text_area :content, class: "span-textarea", rows: "7", tabindex: "1" %>
         <div class="submit-buttons">
           <%= f.submit t("topics.submit_reply"), class: 'btn', disable_with: t("common.submitting") %>
           <span class="pull-right gray">请尽量让自己的回复能够对别人有帮助</span>

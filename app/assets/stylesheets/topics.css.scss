@@ -61,7 +61,7 @@
         }
         &:hover {
           i {
-            color: #666;
+            color: #9A3C15; //#666;
             -webkit-transition: all .2s linear;
                -moz-transition: all .2s linear;
                     transition: all .2s linear;
@@ -79,9 +79,7 @@
   }
 }
 #reply {
-  textarea.reply-editor {
-    width: 590px;
-  }
+
   .submit-buttons {
     span {
       line-height: 28px;
