@@ -1,6 +1,7 @@
 <%= simple_form_for(@topic, html: {class: 'form-horizontal'}) do |f| %> 
   <fieldset>
     <legend><%= @topic.new_record? ? t("topics.create_topic") : t("topics.edit_topic") %></legend>
+    <%= f.error_notification %>
     <%= f.input :title do %>
       <%= render_topic_node_select_tag(@topic) %>
       <%= f.text_field :title, class: "span3" %>

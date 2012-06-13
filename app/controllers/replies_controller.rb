@@ -9,12 +9,9 @@ class RepliesController < ApplicationController
   def create
     @reply = @topic.replies.build(params[:reply])
     @reply.user_id = current_user.id
-    respond_to do |format|
-      format.html { redirect_to @topic }
-      format.js
-    end
     if @reply.save
       @msg = t("topics.reply_success")
+      find_topic
     else
       @msg = @reply.errors.full_messages.join("<br />")
     end

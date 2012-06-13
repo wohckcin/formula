@@ -1,3 +1,9 @@
-    $(".summary").replaceWith('<%= escape_javascript(render "topics/summary", topic: @topic) %>');
-    $("#replies-show").append('<%= escape_javascript(render partial: "replies/reply_item", collection: @replies) %>');
-    Topics.replyCallback(1,'<%= escape_javascript(@msg) %>');
+  if($("#replies-show").length == 0){
+    location.href = location.href;
+  }
+  else {   
+    $(".summary").html('<%= escape_javascript(render "topics/summary", topic: @topic) %>');
+    $("#replies-show ul.replies").append('<%= escape_javascript(render "reply_item", reply_item: @reply) %>');
+    $("abbr.timeago", $("#replies-show .reply-item").last()).timeago().tooltip();
+    $("#new_reply")[0].reset();
+  }

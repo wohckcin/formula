@@ -31,4 +31,10 @@ $(function() {
 
   // bootstrap-tooltips
   $("a.tips").tooltip();
+
+  // bootstrap style like datepicker
+  $('.datepicker').datepicker({
+  format: 'yyyy-mm-dd',
+  language: 'zh-CN' 
+  });
 });

@@ -3,7 +3,3 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 ## bootstrap style like datepicker
-  $('.datepicker').datepicker({
-    format: 'yyyy-mm-dd'
-    language: 'zh-CN'
-  });
