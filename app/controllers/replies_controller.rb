@@ -10,8 +10,8 @@ class RepliesController < ApplicationController
     @reply = @topic.replies.build(params[:reply])
     @reply.user_id = current_user.id
     if @reply.save
-      @msg = t("topics.reply_success")
       find_topic
+      @msg = t("topics.reply_success")
     else
       @msg = @reply.errors.full_messages.join("<br />")
     end

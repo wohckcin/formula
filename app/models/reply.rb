@@ -16,6 +16,8 @@ class Reply < ActiveRecord::Base
   belongs_to :user, inverse_of: :replies
   belongs_to :topic, inverse_of: :replies, counter_cache: true
   attr_accessible :content, :content_html, :likes_count
+  validates_presence_of :user_id, :content
+  before_save :markdown_content
 
   scope :recent, order('id DESC')
 
@@ -23,4 +25,8 @@ class Reply < ActiveRecord::Base
   def update_parent_topic
     topic.update_last_reply(self)
   end
+
+    def markdown_content
+      self.content_html = MarkdownTopicConverter.format(self.content) if self.content_changed?
+    end
 end

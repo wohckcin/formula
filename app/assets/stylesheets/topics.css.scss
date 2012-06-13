@@ -148,6 +148,9 @@ ul.replies {
       }  
     }   
   }
+  li:last-child {
+    border-bottom: 0 solid #DDD;
+  }
 }
 
 // Topic index

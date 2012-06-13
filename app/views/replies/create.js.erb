@@ -1,3 +1,4 @@
+ <% if @reply.errors.blank? %>
   if($("#replies-show").length == 0){
     location.href = location.href;
   }
@@ -7,3 +8,6 @@
     $("abbr.timeago", $("#replies-show .reply-item").last()).timeago().tooltip();
     $("#new_reply")[0].reset();
   }
+<% else %>
+  
+<% end %>
