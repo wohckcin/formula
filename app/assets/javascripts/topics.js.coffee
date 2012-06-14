@@ -2,6 +2,19 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
+$ ->
+  Topics.initCloseWarning($("textarea.closewarning"))
+
+  # Topics.hookPreview($(".editor_toolbar"), $(".topic_editor"))
+
+
+
+
+
+
+
+
+window.Topics =
   preview: (body) ->
     $("#preview").text "Loading..."
 
@@ -31,3 +44,28 @@
       $(textarea).hide()
       Topics.preview($(textarea).val())
       false
+
+  initCloseWarning: (el, msg) ->
+    return false if el.length == 0
+    msg = "离开本页面将丢失未保存页面!" if !msg
+    $("input[type=submit]").click ->
+      $(window).unbind("beforeunload")
+    el.change ->
+      if el.val().length > 0
+        $(window).bind "beforeunload", (e) ->
+          if $.browser.msie
+            e.returnValue = msg
+          else
+            return msg
+      else
+        $(window).unbind("beforeunload")
+
+  # Ajax 回复后的事件
+  replyCallback : (success, msg) ->
+    $("#main .alert-message").remove()
+    if success
+      $("abbr.timeago", $("#replies-show .reply-item").last()).timeago().tooltip();
+      $("#new_reply")[0].reset();
+      App.notice(msg,'#reply')
+    else
+      App.alert(msg,'#reply')

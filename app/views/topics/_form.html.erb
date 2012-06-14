@@ -13,7 +13,7 @@
         <%= render "editor_toolbar" %>
       </div>
     </div>
-    <%= f.input :content, as: :text, input_html: { class: "span5", row: '15' }%>
+    <%= f.input :content, as: :text, input_html: { class: "span5 closewarning", row: '15' }%>
 
     <div class="form-actions">
       <%= f.submit t("common.save"), class: "btn btn-primary", data: {disable_with: t("common.saving")} %>

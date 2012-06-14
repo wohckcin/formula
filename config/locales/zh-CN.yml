@@ -226,3 +226,7 @@ zh-CN:
       topic:
         title: 标题
         content: 正文
+        user_id: 用户
+        node_id: 节点
+      reply:
+        content: 回复内容
