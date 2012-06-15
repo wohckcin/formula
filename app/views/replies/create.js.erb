@@ -4,9 +4,8 @@
   }
   else {   
     $(".summary").html('<%= escape_javascript(render "topics/summary", topic: @topic) %>');
-    $("#replies-show ul.replies").append('<%= escape_javascript(render "reply_item", reply_item: @reply) %>');
-    // $("abbr.timeago", $("#replies-show .reply-item").last()).timeago().tooltip();
-    // $("#new_reply")[0].reset();
+    // $("#replies-show ul.replies").append('<%= escape_javascript(render "reply_item", reply_item: @reply) %>');
+    $('<%= escape_javascript(render "reply_item", reply_item: @reply) %>').hide().appendTo("#replies-show ul.replies").slideDown(200);
     Topics.replyCallback(1,'<%= escape_javascript(@msg) %>');
   }
 <% else %>

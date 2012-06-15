@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $ ->
-  Topics.initCloseWarning($("textarea.closewarning"))
+  Topics.initCloseWarning($('textarea.closewarning'))
 
   # Topics.hookPreview($(".editor_toolbar"), $(".topic_editor"))
 
@@ -15,11 +15,11 @@ $ ->
 
 
 window.Topics =
-  preview: (body) ->
-    $("#preview").text "Loading..."
+  preview: (content) ->
+    $('#preview').text "Loading..."
 
     $.post "/topics/preview",
-      "body": body,
+      "content": content,
       (data) ->
         $("#preview").html data.body
       "json"
@@ -62,10 +62,10 @@ window.Topics =
 
   # Ajax 回复后的事件
   replyCallback : (success, msg) ->
-    $("#main .alert-message").remove()
+    $('#main .alert-message').remove()
     if success
-      $("abbr.timeago", $("#replies-show .reply-item").last()).timeago().tooltip();
-      $("#new_reply")[0].reset();
+      $('abbr.timeago', $('#replies-show .reply-item').last()).timeago().tooltip()
+      $('#new_reply')[0].reset()
       App.notice(msg,'#reply')
     else
       App.alert(msg,'#reply')
