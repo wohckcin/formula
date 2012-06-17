@@ -2,12 +2,20 @@
   <div class="item-detail">
     <div class="content clearfix">
       <%= image_tag(reply_item.user.profile.avatar.url(:normal), class: "avatar pull-left") %>
-      <span class="small">
+      <span class="small clearfix">
         <strong>
           <%= link_to(reply_item.user.display_name, user_path(reply_item.user), class: 'author') %>
         </strong> 
         <%= timeago(reply_item.created_at, class: "published") %>
         <span class="likes"><i class="icon-heart"></i><strong>2</strong></span>
+        <% if current_user %>
+        <span class="pull-right">
+          <ul>
+            <li><a href="" title="喜欢" class="tips"><i class="icon-heart"></i></a></li>
+            <li><a href="" title="回复" class="tips"><i class="icon-share-alt"></i></a></li>
+          </ul>
+        </span>
+        <% end %>
       </span>
       <span class="reply-content">
         <%= raw reply_item.content_html %>

@@ -21,13 +21,13 @@ module ApplicationHelper
     class_attribute = ["#{controller_name}-controller","#{action_name}-action"].join(" ")
     id_attribute = (@body_id)? " id=\"#{@body_id}-page\"" : ""
 
-    raw(%Q|<!--[if lt IE 7 ]>
-<body class="#{class_attribute} ie6"><![endif]-->
-<!--[if gte IE 7 ]>
-<body class="#{class_attribute} ie"><![endif]-->
-<!--[if !IE]>-->
-<body#{id_attribute} class="#{class_attribute}">
-<!--<![endif]-->|)
+#     raw(%Q|<!--[if lt IE 7 ]>
+# <body class="#{class_attribute} ie6"><![endif]-->
+# <!--[if gte IE 7 ]>
+# <body class="#{class_attribute} ie"><![endif]-->
+# <!--[if !IE]>-->
+# <body#{id_attribute} class="#{class_attribute}">
+# <!--<![endif]-->|)
 
   end
     

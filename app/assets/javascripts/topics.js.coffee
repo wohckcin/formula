@@ -65,6 +65,7 @@ window.Topics =
     $('#main .alert-message').remove()
     if success
       $('abbr.timeago', $('#replies-show .reply-item').last()).timeago().tooltip()
+      $('a.tips', $('#replies-show .reply-item').last()).tooltip()
       $('#new_reply')[0].reset()
       App.notice(msg,'#reply')
     else

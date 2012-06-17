@@ -11,7 +11,7 @@
     .content {
       margin-right: 82px;
       h1.entry-title{
-        font-size:150%;
+        font-size: 1.5em;
       }
       .avatar {
         position: absolute;
@@ -23,7 +23,7 @@
       small.metadata {
         color: #999;
         display: block;
-        line-height: 28px;
+        line-height: 2em;
         a.author {
           color: #778087;
           &:hover {
@@ -55,7 +55,7 @@
         display: inline;
         line-height: 20px;
         i {
-          font-size: 120%;
+          font-size: 1.2em;
         }
         a {
           color: #999;
@@ -95,10 +95,10 @@ ul.replies {
   padding: 0;
   margin: 0 -10px;
   list-style: none;
-  li:first-child {
+  >li:first-child {
     border-top: 1px solid #DDD;
   }
-  li.reply-item {
+  >li.reply-item {
     padding: 10px;
     border-bottom: 1px solid #DDD;
     .item-detail {
@@ -114,7 +114,7 @@ ul.replies {
           left: 0;
         }
         .small {
-          font-size: 90%;
+          font-size: 0.9em;
           color: #CCC;
           display: block;
           line-height: 24px;
@@ -140,15 +140,45 @@ ul.replies {
             i {
               // margin-right: 1px;
             }
-          }         
+          }
+          ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            li {
+              display: inline;
+            }
+            a {
+              // opacity: 0;
+              // display: none;
+            }
+          }                   
         }
         .reply-content {
           line-height: 24px;
         }
       }  
-    }   
+    } 
+    .small li a {
+      color: #999;
+      font-size: 1.5em;
+      opacity: 0;
+      -webkit-transition: all .2s ease;
+         -moz-transition: all .2s ease;
+              transition: all .2s ease;
+    }
+    &:hover {
+      .small li a{
+        opacity: 0.5;
+        &:hover {
+          color: #9A3C15; 
+          opacity: 1;
+          text-decoration: none;
+        }
+      }
+    }  
   }
-  li:last-child {
+  >li:last-child {
     border-bottom: 0 solid #DDD;
   }
 }
@@ -180,8 +210,8 @@ ul.topics {
           display: block;
           a {
             color: #778087;
-            font-size: 120%;
-            line-height: 150%;
+            font-size: 1.2em;
+            line-height: 24px;
           }
           a:hover {
             color: #4D5256;
@@ -196,7 +226,7 @@ ul.topics {
           }
         }
         .small {
-          font-size: 90%;
+          font-size: 0.9em;
           color: #CCC;
           display: block;
           a.author {
@@ -215,7 +245,7 @@ ul.topics {
           }
           a.node {
             background-color: whiteSmoke;
-            font-size: 11px;
+            font-size: 0.85em;
             line-height: 11px;
             display: inline-block;
             padding: 4px 4px 4px 4px;
@@ -233,6 +263,8 @@ ul.topics {
             -webkit-transition: all .2s linear;
                -moz-transition: all .2s linear;
                     transition: all .2s linear;
+          }
+          strong.badge {
           }
         }
       }     
