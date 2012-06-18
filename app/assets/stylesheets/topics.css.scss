@@ -147,10 +147,19 @@ ul.replies {
             list-style: none;
             li {
               display: inline;
-            }
-            a {
-              // opacity: 0;
-              // display: none;
+              // font-size: 1.5em;
+              &.no {
+                background-color: #F0F0F0;
+                color: #CCC;
+                display: inline-block;
+                line-height: 10px;
+                font-size: 10px;
+                padding: 2px 5px 2px 5px;
+                font-weight: bold;
+                border-radius: 10px;
+                  -webkit-border-radius: 10px;
+                     -moz-border-radius: 10px;
+              }
             }
           }                   
         }

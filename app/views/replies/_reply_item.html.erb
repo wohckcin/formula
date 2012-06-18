@@ -1,4 +1,4 @@
-<li class="reply-item">
+<li class="reply-item" id="reply-<%= reply_item_counter + 1 %>">
   <div class="item-detail">
     <div class="content clearfix">
       <%= image_tag(reply_item.user.profile.avatar.url(:normal), class: "avatar pull-left") %>
@@ -13,6 +13,7 @@
           <ul>
             <li><a href="" title="喜欢" class="tips"><i class="icon-heart"></i></a></li>
             <li><a href="" title="回复" class="tips"><i class="icon-share-alt"></i></a></li>
+            <li class="no"><%= reply_item_counter +1 %></li>
           </ul>
         </span>
         <% end %>
