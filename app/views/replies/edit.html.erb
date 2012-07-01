@@ -1,2 +1,20 @@
-<h1>Replies#edit</h1>
-<p>Find me in app/views/replies/edit.html.erb</p>
+<div class="row">
+	<div class="span8">
+		<div class="box">
+			<%= simple_form_for([@topic, @reply], html: {class: 'form-horizontal'}) do |f| %> 
+				<fieldset>
+					<legend><%= t("reply.edit_reply")%></legend>
+					<%= f.error_notification %>
+					<%= f.input :content, as: :text, input_html: { class: "span5 closewarning", rows: '5' }%>
+					<div class="form-actions">
+						<%= f.submit t("common.save"), class: "btn", data: {disable_with: t("common.saving")} %>
+						<%= link_to(t("common.cancel"), @topic.id.blank? ? root_path : topic_path(@topic), class: "btn")%>
+					</div>
+				</fieldset>
+			<% end %>
+		</div>
+	</div><!-- end of left column -->
+	<div class="span4">
+		<%= render 'common/right_column' %>
+	</div><!-- end of right column -->
+</div>

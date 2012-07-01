@@ -18,9 +18,16 @@ class RepliesController < ApplicationController
   end
 
   def edit
+    @reply = Reply.find(params[:id])
   end
 
   def update
+    @reply = Reply.find(params[:id])
+    if @reply.update_attributes(params[:reply])
+      redirect_to(topic_path(@reply.topic_id), notice: '回帖更新成功')
+    else
+      render 'edit'
+    end
   end
 
   def destroy
