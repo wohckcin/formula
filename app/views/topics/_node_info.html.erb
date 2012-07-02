@@ -1,0 +1,5 @@
+<% if !node.blank? %>
+  <h2><%= node.name %></h2>
+  <span><%= simple_format(node.description) %></span>
+  <span>话题总数 <%= node.topics_count %></span>
+<% end %>

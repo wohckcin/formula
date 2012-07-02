@@ -9,6 +9,9 @@ class TopicsController < ApplicationController
   end
 
   def node
+    @node = Node.find(params[:id])
+    @topics = @node.topics.last_actived.includes(:user).paginate(page: params[:page], per_page: 20)
+    render 'index'
   end
 
   def recent

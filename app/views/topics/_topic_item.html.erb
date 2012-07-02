@@ -6,7 +6,7 @@
         <%= link_to(truncate(topic_item.title, length: 64), topic_path(topic_item), title: topic_item.title) %>
       </span>
       <span class="small clearfix">
-        <%= link_to(topic_item.node.name, '#', class: 'node') %> • 
+        <%= link_to(topic_item.node.name, node_topics_path(topic_item.node), class: 'node') %> • 
         <strong>
           <%= link_to(topic_item.user.display_name, user_path(topic_item.user), class: 'author') %>
         </strong> • 

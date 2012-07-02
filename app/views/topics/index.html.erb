@@ -1,6 +1,9 @@
 <div class="row">
   <div class="span8">
     <div class="box">
+      <div id="node-info">
+        <%= render 'node_info', node: @node %>
+      </div>
       <% if @topics.any? %>
         <ul class="topics">
         <%= render partial: "topics/topic_item", collection: @topics %>
