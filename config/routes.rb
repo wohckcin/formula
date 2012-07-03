@@ -9,7 +9,7 @@ Formula::Application.routes.draw do
   resources :profiles, :only => [:show, :update]
   resource :profile, :only => [:edit]
 
-  match "topics/node:id" => "topics#node", :as => :node_topics
+  match "topics/node:id" => "topics#node", as: :node_topics
   resources :topics do
     member do
       post :replay

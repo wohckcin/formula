@@ -7,9 +7,13 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find(:first, conditions: { username: params[:id]})
+    @topics = @user.topics.recent.limit(10)
   end
 
   private
+
+  protected
+
 
 end

@@ -8,14 +8,14 @@
       <span class="small clearfix">
         <%= link_to(topic_item.node.name, node_topics_path(topic_item.node), class: 'node') %> • 
         <strong>
-          <%= link_to(topic_item.user.display_name, user_path(topic_item.user), class: 'author') %>
+          <%= link_to(topic_item.user.display_name, user_path(topic_item.user.username), class: 'author') %>
         </strong> • 
         <% if topic_item.last_reply.blank? %>
         <%= timeago(topic_item.created_at, class: 'published') %>
         <% else %>
         <%= timeago(topic_item.replied_at, class: 'published') %> • <%= t('common.reply_from') %>
         <strong>
-          <%= link_to(topic_item.last_reply.user.display_name, user_path(topic_item.last_reply.user), class: 'author') %>
+          <%= link_to(topic_item.last_reply.user.display_name, user_path(topic_item.last_reply.user.username), class: 'author') %>
         </strong>
         <strong class="pull-right badge"><i class="icon-comment"></i> <%= topic_item.replies_count %></strong>
         <% end %>

@@ -4,7 +4,7 @@
       <%= image_tag(reply_item.user.profile.avatar.url(:normal), class: "avatar pull-left") %>
       <span class="small clearfix">
         <strong>
-          <%= link_to(reply_item.user.display_name, user_path(reply_item.user), class: 'author') %>
+          <%= link_to(reply_item.user.display_name, user_path(reply_item.user.username), class: 'author') %>
         </strong> 
         <%= timeago(reply_item.created_at, class: "published") %>
         <span class="likes"><i class="icon-heart"></i><strong>2</strong></span>
