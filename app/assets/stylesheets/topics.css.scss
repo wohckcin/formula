@@ -280,6 +280,27 @@ ul.topics {
     }
   }
 }
+#node-info {
+  span {
+    font-size: 0.9em;
+    color: #CCC;
+    display: block;
+    a {
+      color: #778087;
+      &:hover {
+        color: #4D5256;
+        text-decoration: none;
+        text-shadow:
+          0 0 2px rgba(0,0,0,0.2),
+          0 0 3px rgba(0,0,0,0.2),
+          0 0 4px rgba(0,0,0,0.2);
+          -webkit-transition: all .2s linear;
+             -moz-transition: all .2s linear;
+                  transition: all .2s linear;
+      }
+    }
+  }
+}
 
 // Topic new
 .form-horizontal .editor_tools {

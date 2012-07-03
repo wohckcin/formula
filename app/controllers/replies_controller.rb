@@ -31,6 +31,10 @@ class RepliesController < ApplicationController
   end
 
   def destroy
+    @reply = Reply.find(params[:id])
+    current_topic = @reply.topic_id
+    @reply.destroy
+    redirect_to(topic_path(current_topic), notice: '回帖删除成功')
   end
 
   protected

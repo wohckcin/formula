@@ -1,5 +1,5 @@
 <% if !node.blank? %>
-  <h2><%= node.name %></h2>
+  <span class="pull-right">话题总数 <strong class="gray"><%= node.topics_count %></strong> • <a href="">收藏这个节点</a></span>
+  <h3><%= node.name %></h3>
   <span><%= simple_format(node.description) %></span>
-  <span>话题总数 <%= node.topics_count %></span>
 <% end %>

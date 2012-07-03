@@ -14,11 +14,18 @@
             <li><a href="" title="喜欢" class="tips"><i class="icon-heart"></i></a></li>
             <li><a href="" title="回复" class="tips"><i class="icon-share-alt"></i></a></li>
             <li>
-              <% if can?(:update,reply_item) %>
-                <%= link_to edit_topic_reply_path(@topic,reply_item),class: "tips", title: "修改" do %>
+              <% if can?(:update, reply_item) %>
+                <%= link_to edit_topic_reply_path(@topic, reply_item), class: "tips", title: "修改" do %>
                 <i class="icon-pencil"></i>
                 <% end %>
               <% end %>
+            </li>
+            <li>
+              <% if can?(:destroy, reply_item) %>
+                <%= link_to topic_reply_path(@topic, reply_item), class: "tips", title: "删除", method: :delete, confirm: t("common.confirm_delete") do %>
+                <i class="icon-trash"></i>
+                <% end %>
+              <% end -%>
             </li>
             <li class="no"><%= reply_item_counter +1 %></li>
           </ul>
