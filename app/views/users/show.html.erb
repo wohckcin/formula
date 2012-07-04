@@ -1,2 +1,13 @@
-<div>User: <%= @user.username %></div>
-<div>Email: <%= @user.email if @user.email %></div>
+<div class="row">
+	<div class="span8">
+    <div class="box">
+      <div class="user-profile">
+        <%= image_tag(@user.profile.avatar.url(:huge), class: 'avatar pull-left') %>
+        <span><strong><%= @user.display_name %></strong>@<small><%= @user.username %></small></span>
+      </div>
+    </div>
+  </div><!-- end of left column -->
+  <div class="span4">
+    <%= render 'common/right_column' %>
+  </div><!-- end of right column -->
+</div>
