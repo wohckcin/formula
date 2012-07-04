@@ -1,9 +1,17 @@
 <div class="row">
 	<div class="span8">
     <div class="box">
-      <div class="user-profile">
+      <div class="profile vcard clearfix">
         <%= image_tag(@user.profile.avatar.url(:huge), class: 'avatar pull-left') %>
-        <span><strong><%= @user.display_name %></strong>@<small><%= @user.username %></small></span>
+        <h1><strong> <%= @user.display_name %> </strong><small>@<%= @user.username %></small></h1>
+        <ul>
+          <% if !@user.profile.location.blank? %>
+            <li><i class="icon-map-marker"></i><%= @user.profile.location %></li>
+          <% end %>
+          <% if !@user.profile.website.blank? %>
+            <li><i class="icon-pushpin"></i><%= @user.profile.website %></li>
+          <% end %>
+        </ul>
       </div>
     </div>
   </div><!-- end of left column -->
