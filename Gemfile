@@ -30,7 +30,7 @@ gem 'rolify'
 
 # Css Framework
 gem 'bootstrap-sass', '~> 2.0.3'
-gem 'font-awesome-rails'
+gem 'font-awesome-rails', git: 'git://github.com/bokmann/font-awesome-rails.git'
 
 # From
 gem 'simple_form'

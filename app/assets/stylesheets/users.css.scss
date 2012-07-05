@@ -1,1 +1,13 @@
 // Users show
+.user-profile {
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    li {
+      display: inline;
+      line-height: 20px;
+      color: #999;
+    }
+  }
+}

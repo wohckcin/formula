@@ -13,19 +13,19 @@
         </div>
         <div class="topic-toolbox clearfix">
           <ul class="pull-right">
-            <li><i class="icon-eye-open"></i><strong><%= @topic.views_count %></strong></li>
-            <li><i class="icon-heart"></i><strong>23</strong></li>
-            <li><i class="icon-comment"></i><strong>45</strong></li>
-            <li><i class="icon-bookmark"></i></li>
+            <li><i class="icon-eye-open icon-large"></i><strong><%= @topic.views_count %></strong></li>
+            <li><i class="icon-heart icon-large"></i><strong>23</strong></li>
+            <li><i class="icon-comment icon-large"></i><strong><%= @topic.replies_count %></strong></li>
+            <li><i class="icon-bookmark icon-large"></i></li>
             <% if owner?(@topic) or admin? %>
             <li>
               <%= link_to edit_topic_path(@topic), class: 'tips', title: "修改本帖" do %>
-                <i class="icon-pencil"></i>
+                <i class="icon-pencil icon-large"></i>
               <% end %>
             </li>
             <li>
               <%= link_to topic_path(@topic.id), class: 'tips', title: "删除本帖", method: :delete, confirm: t("common.confirm_delete") do %>
-                <i class="icon-trash"></i>
+                <i class="icon-trash icon-large"></i>
               <% end %>
             </li>
             <% end %>
