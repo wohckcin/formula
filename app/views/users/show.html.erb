@@ -4,14 +4,23 @@
       <div class="user-profile vcard clearfix">
         <%= image_tag(@user.profile.avatar.url(:huge), class: 'avatar pull-left') %>
         <h1><strong> <%= @user.display_name %> </strong><small>@<%= @user.username %></small></h1>
+        <% if !@user.profile.tagline.blank? %>
+          <small class="tagline gray"><strong><%= @user.profile.tagline %></strong></small>
+        <% end %>
         <ul>
           <% if !@user.profile.location.blank? %>
             <li><i class="icon-map-marker icon-large"></i><strong><%= @user.profile.location %></strong></li>
           <% end %>
           <% if !@user.profile.website.blank? %>
-            <li><i class="icon-globe icon-large "></i><strong><%= @user.profile.website %></strong></li>
+          <% website = @user.profile.website[/^https?:\/\//] ? @user.profile.website : "http://" + @user.profile.website %>
+            <li>
+              <%= link_to website, target: '_blank' do %>
+                <i class="icon-globe icon-large"></i><strong><%= @user.profile.website %></strong>
+              <% end %>
+            </li>
           <% end %>
         </ul>
+        <small class="createdtime gray">第<%= @user.id %>号会员，加入于<%= I18n.l(@user.created_at.to_date, format: :long) %></small>
       </div>
     </div>
   </div><!-- end of left column -->

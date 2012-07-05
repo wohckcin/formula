@@ -1,13 +1,37 @@
 // Users show
 .user-profile {
+  .avatar {
+    margin-right: 10px;
+  }
   ul {
     padding: 0;
     margin: 0;
     list-style: none;
     li {
       display: inline;
-      line-height: 20px;
+      line-height: 24px;
       color: #999;
+      a {
+        color: #999;
+        &:hover {
+          text-decoration: none;
+          color: #666;
+            -webkit-transition: all .2s linear;
+               -moz-transition: all .2s linear;
+                    transition: all .2s linear;
+        }
+      }
     }
+  }
+  h1 {
+    height: 36px;
+    line-height: 36px;
+  }
+  small.tagline {
+    display: block;
+    line-height: 24px;
+    font-size: 1.2em;
+  }
+  small.createdtime {
   }
 }
