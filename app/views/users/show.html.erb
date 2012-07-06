@@ -3,7 +3,7 @@
     <div class="box">
       <div class="user-profile vcard clearfix">
         <%= image_tag(@user.profile.avatar.url(:huge), class: 'avatar pull-left') %>
-        <h1><strong> <%= @user.display_name %> </strong><small>@<%= @user.username %></small></h1>
+        <h1 title="第<%= @user.id %>号会员，加入于<%= I18n.l(@user.created_at.to_date, format: :long) %>" class="tips"><strong><%= @user.display_name %> </strong><small>@<%= @user.username %></small></h1>
         <% if !@user.profile.tagline.blank? %>
           <small class="tagline gray"><strong><%= @user.profile.tagline %></strong></small>
         <% end %>
@@ -15,16 +15,24 @@
           <% website = @user.profile.website[/^https?:\/\//] ? @user.profile.website : "http://" + @user.profile.website %>
             <li>
               <%= link_to website, target: '_blank' do %>
-                <i class="icon-globe icon-large"></i><strong><%= @user.profile.website %></strong>
+              <i class="icon-globe icon-large"></i><strong><%= @user.profile.website %></strong>
               <% end %>
             </li>
           <% end %>
         </ul>
-        <small class="createdtime gray">第<%= @user.id %>号会员，加入于<%= I18n.l(@user.created_at.to_date, format: :long) %></small>
+        <%= link_to '', class: 'btn btn-success' do %>
+        <i class="icon-plus"></i><strong> Follow</strong>
+        <% end -%>
       </div>
     </div>
   </div><!-- end of left column -->
   <div class="span4">
+    <% if !@user.profile.bio.blank? %>
+    <div class="box user-bio">
+      <h3 class="title">About <span><%= @user.display_name %></span></h3>
+      <%= simple_format(@user.profile.bio) %>
+    </div>
+    <% end %>
     <%= render 'common/right_column' %>
   </div><!-- end of right column -->
 </div>

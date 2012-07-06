@@ -30,7 +30,7 @@ $ ->
   $('.chosen').chosen()
 
   # bootstrap-tooltips
-  $('a.tips').tooltip()
+  $('.tips').tooltip()
 
   # bootstrap style like datepicker
   $('.datepicker').datepicker

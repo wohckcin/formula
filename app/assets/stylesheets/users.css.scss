@@ -9,7 +9,7 @@
     list-style: none;
     li {
       display: inline;
-      line-height: 24px;
+      line-height: 30px;
       color: #999;
       a {
         color: #999;
@@ -33,5 +33,15 @@
     font-size: 1.2em;
   }
   small.createdtime {
+  }
+}
+.user-bio {
+  color: #666;
+  h3.title {
+    color: #999;
+    span {
+      font-weight: normal;
+      color: #9A3C15;
+    }
   }
 }
