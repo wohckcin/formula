@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 
   # Breadcrumbs Methods
   def set_breadcrumbs
-    @breadcrumbs = ["<a href='/'>Home</a>".html_safe]
+    @breadcrumbs = ["<a href='/'><i class='icon-home'></i></a>".html_safe]
   end
 
   def drop_breadcrumb(title=nil, url=nil)

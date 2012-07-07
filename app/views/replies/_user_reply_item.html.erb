@@ -1,0 +1,5 @@
+<li>
+  <div class="title gray">回复了<%= user_reply_item.topic.user.display_name %>创建的主题 <i class="icon-chevron-right"></i> <%= link_to(truncate(user_reply_item.topic.title, length: 32), topic_path(user_reply_item.topic) + "#reply-#{user_reply_item.id.to_s}", title: user_reply_item.topic.title, class: 'tips') %><span class="pull-right"><%= timeago(user_reply_item.created_at, class: 'published') %></span></div>
+  <div class="content"><%= raw user_reply_item.content_html %></div>
+  
+</li>

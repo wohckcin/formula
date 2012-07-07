@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_user!
+  # before_filter :authenticate_user!
   load_and_authorize_resource :only => :index
 
   def index
@@ -8,7 +8,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(:first, conditions: { username: params[:id]})
-    @topics = @user.topics.recent.limit(10)
+    @topics = @user.topics.recent.limit(5)
+    @replies = @user.replies.recent.includes(:topic).limit(10)
   end
 
   private

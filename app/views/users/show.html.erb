@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="span8">
-    <div class="box">
-      <div class="user-profile vcard clearfix">
+    <div class="box user-profile">
+      <div class="vcard clearfix">
         <%= image_tag(@user.profile.avatar.url(:huge), class: 'avatar pull-left') %>
         <h1 title="第<%= @user.id %>号会员，加入于<%= I18n.l(@user.created_at.to_date, format: :long) %>" class="tips"><strong><%= @user.display_name %> </strong><small>@<%= @user.username %></small></h1>
         <% if !@user.profile.tagline.blank? %>
@@ -25,6 +25,44 @@
         <% end -%>
       </div>
     </div>
+    <% if @topics.any? %>
+    <div class="box topics-list">
+      <div class="summary">
+        <span class="gray"><strong><%= @user.display_name %> </strong>最近创建的主题</span>
+      </div>
+        <ul class="topics">
+        <%= render partial: 'topics/topic_item', collection: @topics %>
+        </ul>
+        <span class="more-link">
+          <%= link_to '' do %>
+            <strong><%= @user.display_name %> </strong>创建的更多主题 <i class="icon-chevron-right "></i>
+          <% end %>
+        </span>
+    </div>
+    <% else %>
+    <div class="placeholder">
+      <span>Srroy, have nothing yet! 对不起，<%= @user.display_name %> 还没有任何主题！</span>
+    </div>
+    <% end %>
+    <% if @replies.any? %>
+    <div class="box replies-list">
+      <div class="summary">
+        <span class="gray"><strong><%= @user.display_name %> </strong>最近回复了</span>
+      </div>
+      <ul class="replies">
+        <%= render partial: 'replies/user_reply_item', collection: @replies %>
+      </ul>
+      <span class="more-link">
+        <%= link_to '' do %>
+          <strong><%= @user.display_name %> </strong>创建的更多回复 <i class="icon-chevron-right "></i>
+        <% end %>
+      </span>
+    </div>
+    <% else %>
+    <div class="placeholder">
+      <span>Srroy, have nothing yet! 对不起，<%= @user.display_name %> 还没有任何回复！</span>
+    </div>
+    <% end %>
   </div><!-- end of left column -->
   <div class="span4">
     <% if !@user.profile.bio.blank? %>
