@@ -55,7 +55,7 @@ module ApplicationHelper
       if i == (@breadcrumbs.length - 1)
         breadcrumb_content = c
       else
-        breadcrumb_content = c + content_tag(:span, "/", class: "divider")
+        breadcrumb_content = c + content_tag(:i, "", class: "divider icon-chevron-right")
       end
 
       crumb += content_tag(:li, breadcrumb_content , class: breadcrumb_class )

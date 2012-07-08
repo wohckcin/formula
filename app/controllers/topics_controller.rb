@@ -1,16 +1,22 @@
 # coding: utf-8
 class TopicsController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :node, :recent, :show]
+  before_filter :init_base_breadcrumb
+  before_filter :set_menu_active
   load_and_authorize_resource only: [:new, :create, :edit, :preview, :update, :destroy, :favorite] 
   # after_filter :add_views_count, only: [:show]
 
   def index
     @topics = Topic.last_actived.includes(:node, :user).paginate(page: params[:page], per_page: 20)
+    # drop_breadcrumb(t("topics.hot_topic"))
+    set_seo_meta("","#{SITE_NAME}#{t("menu.topics")}")
   end
 
   def node
     @node = Node.find(params[:id])
     @topics = @node.topics.last_actived.includes(:user).paginate(page: params[:page], per_page: 20)
+    drop_breadcrumb("#{@node.name}")
+    set_seo_meta("#{@node.name}","#{SITE_NAME}#{t("menu.topics")}#{@node.name}",@node.description)
     render 'index'
   end
 
@@ -22,6 +28,9 @@ class TopicsController < ApplicationController
     @topic.visited
     @node = @topic.node
     @replies = @topic.replies.includes(:user)
+    drop_breadcrumb("#{@node.try(:name)}", node_topics_path(@node.try(:id)))
+    # drop_breadcrumb t("topics.read_topic")
+    set_seo_meta("#{@topic.title}")
   end
 
   def new
@@ -34,6 +43,8 @@ class TopicsController < ApplicationController
       end
       drop_breadcrumb("#{@node.name}", node_topics_path(@node.id))
     end
+    drop_breadcrumb t("topics.post_topic")
+    set_seo_meta("#{t("topics.post_topic")}")
   end
 
   def create
@@ -52,6 +63,9 @@ class TopicsController < ApplicationController
   def edit
     @topic = Topic.find(params[:id])
     @node = @topic.node
+    drop_breadcrumb("#{@node.name}", node_topics_path(@node.id))
+    drop_breadcrumb t("topics.edit_topic")
+    set_seo_meta("#{t("topics.edit_topic")}")
   end
 
   def preview
@@ -81,7 +95,16 @@ class TopicsController < ApplicationController
   end
 
   protected
+
   def add_views_count
     @topic.visited
+  end
+
+  def set_menu_active
+    @current = @current = ['/topics']
+  end
+
+  def init_base_breadcrumb
+    drop_breadcrumb(t("menu.topics"), topics_path)
   end
 end
