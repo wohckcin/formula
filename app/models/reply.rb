@@ -15,6 +15,7 @@
 class Reply < ActiveRecord::Base
   belongs_to :user, inverse_of: :replies
   belongs_to :topic, inverse_of: :replies, counter_cache: true
+  has_many :likes, as: :likeable, dependent: :destroy
   attr_accessible :content, :content_html, :likes_count
   validates_presence_of :user_id, :content
 
