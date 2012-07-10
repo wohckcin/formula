@@ -79,4 +79,33 @@ class User < ActiveRecord::Base
     self.display_name = self.profile.nickname? ? self.profile.nickname : self.username
   end
 
+  # Check whether the user has liked a post.
+  # @param [Post] post
+  def liked?(likeable)
+    if likeable.likes.loaded?
+      if self.like_for(likeable)
+        return true
+      else
+        return false
+      end
+    else
+      Like.exists?(:user_id => self.id, :likeable_type => likeable.class.base_class.to_s, :likeable_id => likeable.id)
+    end
+  end
+
+  # Get the user's like of a post, if there is one.
+  # @param [Post] post
+  # @return [Like]
+  def like_for(likeable)
+    if likeable.likes.loaded?
+      return likeable.likes.detect{ |like| like.user_id == self.id }
+    else
+      return Like.where(:user_id => self.id, :likeable_type => likeable.class.base_class.to_s, :likeable_id => likeable.id).first
+    end
+  end
+
+  def like!(likeable, opts={})
+    Like.new(self, likeable).create!(opts)
+  end
+
 end
