@@ -6,8 +6,10 @@ Formula::Application.routes.draw do
 
   resources :users, only: [:index, :show]
 
-  resources :profiles, :only => [:show, :update]
-  resource :profile, :only => [:edit]
+  resources :profiles, only: [:show, :update]
+  resource :profile, only: [:edit]
+
+  resources :likes, only: [:create, :destroy]
 
   match "topics/node:id" => "topics#node", as: :node_topics
   resources :topics do
