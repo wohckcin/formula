@@ -14,6 +14,8 @@ class Like < ActiveRecord::Base
   belongs_to :user
   belongs_to :likeable, polymorphic: true, counter_cache: true
 
+  attr_accessible :user_id, :likeable
+
   scope :recent, order("id DESC")
   scope :topics, where(likeable_type: 'Topic')
 

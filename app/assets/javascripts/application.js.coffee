@@ -20,7 +20,7 @@
 #= require_tree .
 
 $ ->
-  # bootstrap-dropdown
+  # bootstrap-dropdown 
   $('.dropdown-toggle').dropdown()
 
   # Cliend-side timeago by jQuery
@@ -49,3 +49,36 @@ window.App =
   notice : (msg,to) ->
     $(".alert").remove()
     $(to).before("<div class='alert alert-success'><a class='close' data-dismiss='alert' href='#'>x</a>#{msg}</div>")
+
+  likeable : (el) ->
+    $el = $(el)
+    likeable_type = $el.data("type")
+    likeable_id = $el.data("id")
+    likes_count = parseInt($el.data("count"))
+    if $el.data("state") != "liked"
+      $.ajax
+        url : "/likes"
+        type : "POST"
+        data :
+          type : likeable_type
+          id : likeable_id
+
+      likes_count += 1
+      $el.data("state","liked").data('count', likes_count).attr("title", "取消喜欢")
+      $('span',el).text("#{likes_count}人喜欢")
+      $("i.icon",el).attr("class","icon small_liked")
+    else
+      $.ajax
+        url : "/likes/#{likeable_id}"
+        type : "DELETE"
+        data :
+          type : likeable_type
+      if likes_count > 0
+        likes_count -= 1
+      $el.data("state","").data('count', likes_count).attr("title", "喜欢")
+      if likes_count == 0
+        $('span',el).text("喜欢")
+      else
+        $('span',el).text("#{likes_count}人喜欢")
+      $("i.icon",el).attr("class","icon small_like")
+    false

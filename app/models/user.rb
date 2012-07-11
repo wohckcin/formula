@@ -89,7 +89,7 @@ class User < ActiveRecord::Base
         return false
       end
     else
-      Like.exists?(:user_id => self.id, :likeable_type => likeable.class.base_class.to_s, :likeable_id => likeable.id)
+      Like.exists?(user_id: self.id, likeable_type: likeable.class.base_class.to_s, likeable_id: likeable.id)
     end
   end
 
@@ -100,12 +100,12 @@ class User < ActiveRecord::Base
     if likeable.likes.loaded?
       return likeable.likes.detect{ |like| like.user_id == self.id }
     else
-      return Like.where(:user_id => self.id, :likeable_type => likeable.class.base_class.to_s, :likeable_id => likeable.id).first
+      return Like.where(user_id: self.id, likeable_type: likeable.class.base_class.to_s, likeable_id: likeable.id).first
     end
   end
 
-  def like!(likeable, opts={})
-    Like.new(self, likeable).create!(opts)
+  def like!(likeable)
+    @like = Like.new(user_id: self.id, likeable: likeable)
   end
 
 end
