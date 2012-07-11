@@ -54,10 +54,11 @@
       li {
         display: inline;
         line-height: 20px;
-        i {
-        }
         a {
           color: #999;
+        }
+        i.active {
+          color: #9A3C15;
         }
         &:hover {
           i {

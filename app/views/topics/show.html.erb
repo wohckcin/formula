@@ -14,7 +14,7 @@
         <div class="topic-toolbox clearfix">
           <ul class="pull-right">
             <li><i class="icon-eye-open icon-large"></i><strong><%= @topic.views_count %></strong></li>
-            <li><i class="icon-heart icon-large"></i><strong>23</strong></li>
+            <li><%= likeable_tag(@topic) %></li>
             <li><i class="icon-comment icon-large"></i><strong><%= @topic.replies_count %></strong></li>
             <li><i class="icon-bookmark icon-large"></i></li>
             <% if owner?(@topic) or admin? %>

@@ -31,6 +31,7 @@ $ ->
 
   # bootstrap-tooltips
   $('.tips').tooltip()
+  $("a[rel=twipsy]").tooltip()
 
   # bootstrap style like datepicker
   $('.datepicker').datepicker
@@ -62,11 +63,11 @@ window.App =
         data :
           type : likeable_type
           id : likeable_id
-
       likes_count += 1
-      $el.data("state","liked").data('count', likes_count).attr("title", "取消喜欢")
-      $('span',el).text("#{likes_count}人喜欢")
-      $("i.icon",el).attr("class","icon small_liked")
+      $el.data("state","liked").data('count', likes_count).attr("data-original-title", "取消喜欢")
+      $('strong', el).text(likes_count)
+      $("i.icon-heart", el).attr("class","icon-heart icon-large active")
+
     else
       $.ajax
         url : "/likes/#{likeable_id}"
@@ -75,10 +76,7 @@ window.App =
           type : likeable_type
       if likes_count > 0
         likes_count -= 1
-      $el.data("state","").data('count', likes_count).attr("title", "喜欢")
-      if likes_count == 0
-        $('span',el).text("喜欢")
-      else
-        $('span',el).text("#{likes_count}人喜欢")
-      $("i.icon",el).attr("class","icon small_like")
+      $el.data("state","").data('count', likes_count).attr("data-original-title", "喜欢")
+      $('strong',el).text("#{likes_count}")
+      $("i.icon-heart",el).attr("class","icon-heart icon-large")
     false

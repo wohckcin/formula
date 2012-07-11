@@ -4,20 +4,19 @@ class LikesController < ApplicationController
 
   def create
     @like = current_user.like!(@target) if @target rescue ActiveRecord::RecordInvalid
-    @target.reload
+    if @like.save
+       @target.reload
+    end
   end
  
   def destroy
-    @like = current_user.like_for(@target)
+    @like = current_user.like_for(@target) if @target rescue ActiveRecord::RecordInvalid
     @like.destroy
     @target.reload
   end
 
   private
   def find_likeable
-    # @success = false
-    # @element_id = "likeable_#{params[:type]}_#{params[:id]}"
-
     klass = params[:type].constantize
     @target = klass.find_by_id(params[:id])
   end
