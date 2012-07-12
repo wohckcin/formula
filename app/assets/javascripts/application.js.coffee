@@ -64,9 +64,13 @@ window.App =
           type : likeable_type
           id : likeable_id
       likes_count += 1
-      $el.data("state","liked").data('count', likes_count).attr("data-original-title", "取消喜欢")
-      $('strong', el).text(likes_count)
-      $("i.icon-heart", el).attr("class","icon-heart icon-large active")
+      if likeable_type == "Topic"
+        $el.data("state","liked").data('count', likes_count).attr("data-original-title", "取消喜欢")
+        $('strong', el).text(likes_count)
+        $("i.icon-heart", el).attr("class","icon-heart icon-large active")
+      if likeable_type == "Reply"
+        $el.data("state","liked").data('count', likes_count).attr("data-original-title", "取消喜欢")
+        $("i.icon-heart", el).attr("class","icon-heart active")
 
     else
       $.ajax
@@ -76,7 +80,12 @@ window.App =
           type : likeable_type
       if likes_count > 0
         likes_count -= 1
-      $el.data("state","").data('count', likes_count).attr("data-original-title", "喜欢")
-      $('strong',el).text("#{likes_count}")
-      $("i.icon-heart",el).attr("class","icon-heart icon-large")
+      if likeable_type == "Topic"
+        $el.data("state","").data('count', likes_count).attr("data-original-title", "喜欢")
+        $('strong',el).text("#{likes_count}")
+        $("i.icon-heart",el).attr("class","icon-heart icon-large")
+      if likeable_type == "Reply"
+        $el.data("state","").data('count', likes_count).attr("data-original-title", "喜欢")
+        $("i.icon-heart",el).attr("class","icon-heart")
+
     false

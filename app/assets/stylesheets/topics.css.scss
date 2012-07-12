@@ -135,7 +135,7 @@ ul.replies {
           .published {
             margin: 0 1em;
           }
-          .likes {
+          .reply-likeable {
             color: #999;
             i {
               // margin-right: 1px;
@@ -183,6 +183,9 @@ ul.replies {
           color: #9A3C15; 
           opacity: 1;
           text-decoration: none;
+        }
+        i.active {
+          color: #9A3C15; 
         }
       }
     }  
