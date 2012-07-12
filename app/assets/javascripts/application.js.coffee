@@ -71,6 +71,9 @@ window.App =
       if likeable_type == "Reply"
         $el.data("state","liked").data('count', likes_count).attr("data-original-title", "取消喜欢")
         $("i.icon-heart", el).attr("class","icon-heart active")
+        $('strong',"span.reply-likeable##{likeable_id}").text(likes_count)
+        if likes_count == 1
+          $("span.reply-likeable##{likeable_id}").show()
 
     else
       $.ajax
@@ -87,5 +90,8 @@ window.App =
       if likeable_type == "Reply"
         $el.data("state","").data('count', likes_count).attr("data-original-title", "喜欢")
         $("i.icon-heart",el).attr("class","icon-heart")
+        $('strong',"span.reply-likeable##{likeable_id}").text(likes_count)
+        if likes_count == 0
+          $("span.reply-likeable##{likeable_id}").hide()
 
     false

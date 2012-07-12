@@ -23,7 +23,7 @@ module LikesHelper
       elsif likeable.class.to_s == 'Reply'
         like_label = raw "#{icon_reply}"
       end
-      link_to(like_label,"", title: title, rel: "twipsy", 'data-count' => likeable.likes_count,
+      link_to(like_label,"#", title: title, rel: "twipsy", 'data-count' => likeable.likes_count,
               'data-state' => state, 'data-type' => likeable.class, 'data-id' => likeable.id,
               class: 'likeable', onclick: "return App.likeable(this);")
     else
