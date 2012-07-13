@@ -11,7 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120528123312) do
+ActiveRecord::Schema.define(:version => 20120713133151) do
+
+  create_table "follows", :force => true do |t|
+    t.integer  "followable_id",                      :null => false
+    t.string   "followable_type",                    :null => false
+    t.integer  "follower_id",                        :null => false
+    t.string   "follower_type",                      :null => false
+    t.boolean  "blocked",         :default => false, :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+  end
+
+  add_index "follows", ["followable_id", "followable_type"], :name => "fk_followables"
+  add_index "follows", ["follower_id", "follower_type"], :name => "fk_follows"
 
   create_table "likes", :force => true do |t|
     t.integer  "user_id"
@@ -38,25 +51,6 @@ ActiveRecord::Schema.define(:version => 20120528123312) do
   end
 
   add_index "nodes", ["section_id"], :name => "index_nodes_on_section_id"
-
-  create_table "posts", :force => true do |t|
-    t.integer  "user_id"
-    t.string   "title"
-    t.text     "content"
-    t.text     "content_html"
-    t.string   "type"
-    t.integer  "node_id"
-    t.integer  "comments_count", :default => 0, :null => false
-    t.integer  "likes_count",    :default => 0, :null => false
-    t.integer  "views_count",    :default => 0, :null => false
-    t.datetime "commented_at"
-    t.datetime "sticky_at"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
-  end
-
-  add_index "posts", ["node_id"], :name => "index_posts_on_node_id"
-  add_index "posts", ["user_id"], :name => "index_posts_on_user_id"
 
   create_table "profiles", :force => true do |t|
     t.integer  "user_id"

@@ -49,6 +49,9 @@ gem "redcarpet", "~> 2.1.1"
 gem "pygments.rb", "~> 0.2.12"
 gem "rails_autolink", "~> 1.0.9"
 
+# Follow
+gem "acts_as_follower"
+
 # TEST with capybara and Rspec
 group :development, :test do
   gem 'sqlite3'

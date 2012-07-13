@@ -50,6 +50,12 @@ class User < ActiveRecord::Base
   has_many :replies
   has_many :likes
 
+  # Followable
+  acts_as_followable
+
+  # Follower
+  acts_as_follower
+
   # Set a default of an empty profile when a new User record is instantiated.
   # Passing :profile => nil to User.new will instantiate a person with no profile.
   # Calling User.new with a block:
