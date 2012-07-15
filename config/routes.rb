@@ -10,6 +10,7 @@ Formula::Application.routes.draw do
   resource :profile, only: [:edit]
 
   resources :likes, only: [:create, :destroy]
+  resources :follows, only: [:create, :destroy]
 
   match "topics/node:id" => "topics#node", as: :node_topics
   resources :topics do
