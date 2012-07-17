@@ -2,6 +2,35 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// Follow
+a.follow, a.following {
+  color: #666;
+  margin: 0 0 -2px 0;
+  padding: 3px;
+  width: 8px;
+  height: 8px;
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+  background: #d3d3d3 url(glass-30.png) repeat-x 0 50%;
+  display: inline-block;
+  &:hover {
+    color: #fff;
+    background: #8ABA56 url(glass-30.png) repeat-x 0 50%;
+  }
+  span {
+    background-image: url(icon-mini-follow.png);
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    width: 10px;
+    height: 10px;
+    padding-left: 8px;
+    text-indent: -999em;
+    display: block;
+  }
+
+}
+
 // Topic show
 #topic-show {
   .topic-header {
@@ -24,6 +53,7 @@
         color: #999;
         display: block;
         line-height: 2em;
+        vertical-align: baseline;
         a.author {
           color: #778087;
           &:hover {
