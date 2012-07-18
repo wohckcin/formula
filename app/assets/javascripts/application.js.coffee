@@ -112,5 +112,5 @@ window.App =
         url : "/follows/#{followable_id}"
         type : "DELETE"
         data :
-          type : likeable_type
+          type : followable_type
 

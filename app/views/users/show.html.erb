@@ -20,9 +20,7 @@
             </li>
           <% end %>
         </ul>
-        <%= link_to '#', class: 'user-follow' do %>
-        <span>Follow</span>
-        <% end -%>
+        <%= followable_tag(@user) %>
       </div>
     </div>
     <% if @topics.any? %>

@@ -18,8 +18,8 @@
             <strong>23</strong> Shares
           </a>
         </li>
-        <li><a href="/#!/following" data-element-term="following_stats"><strong>53</strong> Following</a></li>
-        <li><a href="/#!/followers" data-element-term="follower_stats"><strong>9</strong> Followers</a></li>
+        <li><a href="/#!/following" data-element-term="following_stats" class="following_stats"><strong><%= current_user.follow_count %></strong> Following</a></li>
+        <li><a href="/#!/followers" data-element-term="follower_stats" class="follower_stats"><strong><%= current_user.followers_count %></strong> Followers</a></li>
       </ul>
     </div>
   </div>

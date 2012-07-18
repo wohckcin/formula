@@ -1,0 +1,5 @@
+<% if @target.errors.blank? %>
+  $('span', 'a.following').text('Follow')
+  $('a.following').attr('class', 'follow')
+  $('strong', 'a.following_stats').text('<%= current_user.follow_count %>')
+<% end %>
