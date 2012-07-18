@@ -95,3 +95,22 @@ window.App =
           $("span.reply-likeable##{likeable_id}").hide()
 
     false
+
+  followable : (el) ->
+    $el = $(el)
+    followable_type = $el.data("type")
+    followable_id = $el.data("id")
+    if $el.attr("class") == "follow"
+      $.ajax
+        url : "/follows"
+        type : "POST"
+        data :
+          type : followable_type
+          id : followable_id
+    else
+      $.ajax
+        url : "/follows/#{followable_id}"
+        type : "DELETE"
+        data :
+          type : likeable_type
+

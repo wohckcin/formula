@@ -3,20 +3,24 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // Follow
-a.follow, a.following {
+a.follow {
   color: #666;
   margin: 0 0 -2px 0;
   padding: 3px;
   width: 8px;
   height: 8px;
+  background: #d3d3d3 url(glass-30.png) repeat-x 0 50%;
+  display: inline-block;
   -webkit-border-radius: 3px;
      -moz-border-radius: 3px;
           border-radius: 3px;
-  background: #d3d3d3 url(glass-30.png) repeat-x 0 50%;
-  display: inline-block;
   &:hover {
-    color: #fff;
-    background: #8ABA56 url(glass-30.png) repeat-x 0 50%;
+    border-color: #8ABA56;
+    background-color: #8ABA56;
+    text-decoration: none;
+    -webkit-transition: all .2s linear;
+       -moz-transition: all .2s linear;
+            transition: all .2s linear;
   }
   span {
     background-image: url(icon-mini-follow.png);
@@ -28,7 +32,40 @@ a.follow, a.following {
     text-indent: -999em;
     display: block;
   }
-
+}
+a.following {
+  color: #666;
+  margin: 0 0 -2px 0;
+  padding: 3px;
+  width: 8px;
+  height: 8px;
+  background: #8ABA56 url(glass-30.png) repeat-x 0 50%;
+  display: inline-block;
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+  &:hover {
+    border-color: #EA4C89;
+    background-color: #EA4C89;
+    text-decoration: none;
+    -webkit-transition: all .2s linear;
+       -moz-transition: all .2s linear;
+            transition: all .2s linear;
+    span {
+      color: #f9c;
+      background-image: url(icon-mini-unfollow.png);
+    }
+  }
+  span {
+    background-image: url(icon-mini-following.png);
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    width: 10px;
+    height: 10px;
+    padding-left: 8px;
+    text-indent: -999em;
+    display: block;
+  }
 }
 
 // Topic show
