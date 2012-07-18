@@ -15,7 +15,7 @@
       <ul class="stats">
         <li>
           <a href="/#!/5ive" data-element-term="tweet_stats">
-            <strong>23</strong> Shares
+            <strong><%= current_user.topics.count %></strong> Topics
           </a>
         </li>
         <li><a href="/#!/following" data-element-term="following_stats" class="following_stats"><strong><%= current_user.follow_count %></strong> Following</a></li>
