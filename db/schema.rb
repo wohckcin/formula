@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120713133151) do
+ActiveRecord::Schema.define(:version => 20120724121830) do
 
   create_table "follows", :force => true do |t|
     t.integer  "followable_id",                      :null => false
@@ -51,6 +51,20 @@ ActiveRecord::Schema.define(:version => 20120713133151) do
   end
 
   add_index "nodes", ["section_id"], :name => "index_nodes_on_section_id"
+
+  create_table "notifications", :force => true do |t|
+    t.integer  "target_id"
+    t.string   "target_type"
+    t.integer  "recipient_id",                   :null => false
+    t.string   "type"
+    t.boolean  "unread",       :default => true, :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+  end
+
+  add_index "notifications", ["recipient_id"], :name => "index_notifications_on_recipient_id"
+  add_index "notifications", ["target_id"], :name => "index_notifications_on_target_id"
+  add_index "notifications", ["target_type", "target_id"], :name => "index_notifications_on_target_type_and_target_id"
 
   create_table "profiles", :force => true do |t|
     t.integer  "user_id"

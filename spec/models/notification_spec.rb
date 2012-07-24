@@ -1,19 +1,19 @@
 # == Schema Information
 #
-# Table name: replies
+# Table name: notifications
 #
 #  id           :integer          not null, primary key
-#  user_id      :integer
-#  topic_id     :integer
-#  content      :text
-#  content_html :text
-#  likes_count  :integer          default(0), not null
+#  target_id    :integer
+#  target_type  :string(255)
+#  recipient_id :integer          not null
+#  type         :string(255)
+#  unread       :boolean          default(TRUE), not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #
 
 require 'spec_helper'
 
-describe Reply do
+describe Notification do
   pending "add some examples to (or delete) #{__FILE__}"
 end

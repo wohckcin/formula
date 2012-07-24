@@ -2,15 +2,15 @@
 #
 # Table name: sections
 #
-#  id                :integer         not null, primary key
+#  id                :integer          not null, primary key
 #  name              :string(255)
 #  title             :string(255)
 #  title_alternative :string(255)
 #  description       :text
-#  postion_at        :integer         default(0), not null
-#  nodes_count       :integer         default(0), not null
-#  created_at        :datetime        not null
-#  updated_at        :datetime        not null
+#  postion_at        :integer          default(0), not null
+#  nodes_count       :integer          default(0), not null
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
 #
 
 require 'spec_helper'

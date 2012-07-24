@@ -57,7 +57,7 @@ group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails'
   gem 'thin'
-  gem 'annotate'
+  gem 'annotate', ">=2.5.0.pre1"
 end
 group :test do
   gem 'factory_girl_rails'
