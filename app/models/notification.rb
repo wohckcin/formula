@@ -19,8 +19,15 @@ class Notification < ActiveRecord::Base
 
   attr_accessor :note_html
 
+  scope :recent, order("id DESC")
+  scope :unread, where(:unread => true)
+
   def self.for(recipient, opts={})
     self.where(opts.merge!(:recipient_id => recipient.id)).order('updated_at desc')
+  end
+
+  def anchor
+    "notification-#{id}"
   end
 
 
