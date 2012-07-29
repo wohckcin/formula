@@ -93,7 +93,6 @@ window.App =
         $('strong',"span.reply-likeable##{likeable_id}").text(likes_count)
         if likes_count == 0
           $("span.reply-likeable##{likeable_id}").hide()
-
     false
 
   followable : (el) ->
@@ -113,4 +112,5 @@ window.App =
         type : "DELETE"
         data :
           type : followable_type
+    false
 
