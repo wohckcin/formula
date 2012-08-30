@@ -30,5 +30,4 @@ class Notification < ActiveRecord::Base
     "notification-#{id}"
   end
 
-
 end
