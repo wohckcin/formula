@@ -115,4 +115,8 @@ class User < ActiveRecord::Base
     @like = Like.new(user_id: self.id, likeable: likeable)
   end
 
+  def read_all_notifications(notifications)
+    notifications.update_all(:unread => false)
+  end
+
 end

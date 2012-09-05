@@ -37,4 +37,8 @@ class ApplicationController < ActionController::Base
     @meta_keywords = meta_keywords
     @meta_description = meta_description
   end
+
+  def redirect_referrer_or_default(default)
+    redirect_to(request.referrer || default)
+  end
 end

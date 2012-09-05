@@ -1,5 +1,5 @@
 Formula::Application.routes.draw do
-
+  
   root :to => 'home#index'
 
   devise_for :users
@@ -11,6 +11,8 @@ Formula::Application.routes.draw do
 
   resources :likes, only: [:create, :destroy]
   resources :follows, only: [:create, :destroy]
+
+  resources :notifications, only: [:index, :destroy]
 
   match "topics/node:id" => "topics#node", as: :node_topics
   resources :topics do
